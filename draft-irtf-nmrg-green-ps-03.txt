@@ -16,7 +16,7 @@ Expires: 2 July 2024                                         J. Tantsura
 
 
     Challenges and Opportunities in Management for Green Networking
-                      draft-irtf-nmrg-green-ps-02
+                      draft-irtf-nmrg-green-ps-03
 
 Abstract
 
@@ -738,7 +738,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
    To remedy this situation, an effort to define sets of green
    networking metrics is currently under way
-   [I.D.draft-cx-green-metrics].  An agreed set of such metrics will
+   [I-D.cx-opsawg-green-metrics].  An agreed set of such metrics will
    provide the basis for further steps such as the implementation of
    corresponding data models as part of management and control
    instrumentation.
@@ -1653,10 +1653,13 @@ Internet-Draft       Management for Green Networking       December 2023
               Sensors Vol. 19 No. 3, June 2019,
               <https://ieeexplore.ieee.org/document/6779082>.
 
-   [I.D.draft-cx-green-metrics]
+   [I-D.cx-opsawg-green-metrics]
               Clemm, A., Dong, L., Mirsky, G., Ciavaglia, L., Tantsura,
-              J., Odini, M., Schooler, E., and A. Rezaki, "Green
-              Networking Metrics", June 2023.
+              J., Odini, M., Schooler, E., Rezaki, A., and C. Pignataro,
+              "Green Networking Metrics", Work in Progress, Internet-
+              Draft, draft-cx-opsawg-green-metrics-01, 15 December 2023,
+              <https://datatracker.ietf.org/doc/html/draft-cx-opsawg-
+              green-metrics-01>.
 
    [IETF-Net0]
               Daley, J., "Towards a net zero IETF", IETF News , 6 May
@@ -1669,9 +1672,6 @@ Internet-Draft       Management for Green Networking       December 2023
               International Conference on ICT as Key Technology against
               Global Warming pp.64-78, 2012.
 
-   [Junkyard] Switzer, J., Kastner, R., and P. Pannuto, "Architecture of
-              a Junkyard Datacenter", arXiv:2110.06870v1, October 2021 ,
-              2021.
 
 
 
@@ -1681,6 +1681,10 @@ Clemm, et al.              Expires 2 July 2024                 [Page 30]
 
 Internet-Draft       Management for Green Networking       December 2023
 
+
+   [Junkyard] Switzer, J., Kastner, R., and P. Pannuto, "Architecture of
+              a Junkyard Datacenter", arXiv:2110.06870v1, October 2021 ,
+              2021.
 
    [Krol2017NFaaS]
               Krol, M. and I. Psaras, "NFaaS: Named Function as a
@@ -1727,16 +1731,16 @@ Internet-Draft       Management for Green Networking       December 2023
               ESP, and uncompressed", RFC 3095, DOI 10.17487/RFC3095,
               July 2001, <https://www.rfc-editor.org/info/rfc3095>.
 
-   [RFC7950]  Bjorklund, M., Ed., "The YANG 1.1 Data Modeling Language",
-              RFC 7950, DOI 10.17487/RFC7950, August 2016,
-              <https://www.rfc-editor.org/info/rfc7950>.
-
 
 
 Clemm, et al.              Expires 2 July 2024                 [Page 31]
 
 Internet-Draft       Management for Green Networking       December 2023
 
+
+   [RFC7950]  Bjorklund, M., Ed., "The YANG 1.1 Data Modeling Language",
+              RFC 7950, DOI 10.17487/RFC7950, August 2016,
+              <https://www.rfc-editor.org/info/rfc7950>.
 
    [RFC8402]  Filsfils, C., Ed., Previdi, S., Ed., Ginsberg, L.,
               Decraene, B., Litkowski, S., and R. Shakir, "Segment
@@ -1781,10 +1785,6 @@ Internet-Draft       Management for Green Networking       December 2023
               Computer Communciations Review Vol.44 No.3, July 2014.
 
 Authors' Addresses
-
-
-
-
 
 
 

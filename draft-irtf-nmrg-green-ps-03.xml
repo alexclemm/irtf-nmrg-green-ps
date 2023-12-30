@@ -1,11 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE rfc [
-<!ENTITY RFC.2481 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2481.xml">
-<!ENTITY RFC.3031 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3031.xml">
-<!ENTITY RFC.3095 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3095.xml">
-<!ENTITY RFC.7950 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7950.xml">
-<!ENTITY RFC.8402 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8402.xml">
-<!ENTITY RFC.9330 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.9330.xml">
+<!ENTITY RFC.2481 SYSTEM "https://bib.ietf.org/public/rfc/bibxml/reference.RFC.2481.xml">
+<!ENTITY RFC.3031 SYSTEM "https://bib.ietf.org/public/rfc/bibxml/reference.RFC.3031.xml">
+<!ENTITY RFC.3095 SYSTEM "https://bib.ietf.org/public/rfc/bibxml/reference.RFC.3095.xml">
+<!ENTITY RFC.7950 SYSTEM "https://bib.ietf.org/public/rfc/bibxml/reference.RFC.7950.xml">
+<!ENTITY RFC.8402 SYSTEM "https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8402.xml">
+<!ENTITY RFC.9330 SYSTEM "https://bib.ietf.org/public/rfc/bibxml/reference.RFC.9330.xml">
+<!ENTITY I-D.cx-opsawg-green-metrics SYSTEM "https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.cx-opsawg-green-metrics.xml">
+
 ]>
 
 <?rfc comments="yes"?>
@@ -325,7 +327,7 @@ Beyond "first-order" opportunities as outlined in the previous subsection, netwo
 <t>
 One prerequisite to such schemes is to have proper instrumentation in place that allows to monitor current power consumption at the level of networking devices as a whole, line cards, and individual ports.  Such instrumentation should also allow to assess the energy efficiency and carbon footprint of the device as a whole. In addition, it will be desirable to relate this power consumption to data rates as well as to current traffic, for example, to indicate current energy consumption relative to interface speeds, as well as for incremental energy consumption that is expected for incremental traffic (to aid control schemes that aim to "shave" power off current services or to minimize the incremental use of power for additional traffic).  This is an area where the current state of the art is sorely lacking and standardization lags behind.  For example, as of today, standardized YANG data models <xref target="RFC7950"/> for network energy consumption that can be used in conjunction with management and control protocols have yet to be defined. 
 </t>
-<t>To remedy this situation, an effort to define sets of green networking metrics is currently under way <xref target="I.D.draft-cx-green-metrics"/>.  An agreed set of such metrics will provide the basis for further steps such as the implementation of corresponding data models as part of management and control instrumentation.  
+<t>To remedy this situation, an effort to define sets of green networking metrics is currently under way <xref target="I-D.cx-opsawg-green-metrics"/>.  An agreed set of such metrics will provide the basis for further steps such as the implementation of corresponding data models as part of management and control instrumentation.  
 </t>
 <t>
 Instrumentation should also take into account the possibility of virtualization, introducing layers of indirection to assess the actual energy usage. For example, virtualized networking functions could be hosted on containers or virtual machines which are hosted on a CPU in a data center instead of a regular network appliance such as a router or a switch, leading to very different power consumption characteristics. For example, a data center CPU could be more power efficient and consume power more proportionally to actual CPU load. Instrumentation needs to reflect these facts and facilitate attributing power consumption in a correct manner. 
@@ -627,21 +629,7 @@ We thank Dave Oran for providing the information regarding covert channels using
         &RFC.7950;
         &RFC.8402;
         &RFC.9330;
-
-  <reference anchor="I.D.draft-cx-green-metrics">
-  <front>
-    <title>Green Networking Metrics</title>
-    <author fullname="Alexander Clemm"></author>
-	<author fullname="Lijun Dong"></author>
-	<author fullname="Greg Mirsky"></author>
-    <author fullname="Laurent Ciavaglia"></author>
-	<author fullname="Jeff Tantsura"></author>
-	<author fullname="Marie-Paule Odini"></author>
-    <author fullname="Eve Schooler"></author>
-    <author fullname="Ali Rezaki"></author>
-	<date month="June" year="2023"/>
-    </front>
-  </reference>
+        &I-D.cx-opsawg-green-metrics;
   
 
       <reference anchor="Telefonica2021">
