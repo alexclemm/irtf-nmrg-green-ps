@@ -1,0 +1,962 @@
+<?xml version="1.0"?>
+<!DOCTYPE rfc [
+<!ENTITY RFC.2481 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2481.xml">
+<!ENTITY RFC.3031 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3031.xml">
+<!ENTITY RFC.3095 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3095.xml">
+<!ENTITY RFC.7950 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7950.xml">
+<!ENTITY RFC.8402 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8402.xml">
+<!ENTITY RFC.9330 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.9330.xml">
+]>
+
+<?rfc comments="yes"?>
+<?rfc compact="no"?>
+<?rfc inline="yes"?>
+<?rfc sortrefs="yes"?>
+<?rfc subcompact="no"?>
+<?rfc symrefs="yes"?>
+<?rfc toc="yes"?>
+<?rfc tocdepth="5"?>
+<?rfc tocindent="yes"?>
+<?rfc tocompact="yes"?>
+
+
+<rfc category="info" docName="draft-irtf-nmrg-green-ps-03" ipr="trust200902"
+    submissionType="IETF">
+
+<front>
+<title abbrev="Management for Green Networking">Challenges and Opportunities in Management for Green Networking</title>
+
+
+<author fullname="Alexander Clemm" initials="A."
+    surname="Clemm" role="editor">
+    <organization>Futurewei</organization>
+    <address>
+        <postal>
+            <street>2330 Central Expressway</street>
+            <city>Santa Clara</city>
+            <country>US</country>
+            <code>CA 95050</code>
+        </postal>
+        <phone></phone>
+        <email>ludwig@clemm.org</email>
+    </address>
+</author>
+
+<author fullname="Cedric Westphal" initials="C"
+    surname="Westphal">
+    <organization>Futurewei</organization>
+ 	<address>
+		<email>cedric.westphal@futurewei.com</email>
+	</address>
+</author>
+
+<author fullname="Jeff Tantsura" initials="J" surname="Tantsura">
+    <organization>Nvidia</organization>
+    <address>
+        <email>jefftant.ietf@gmail.com</email>
+    </address>
+</author>
+
+<author fullname="Laurent Ciavaglia" initials="L" surname="Ciavaglia">
+    <organization>Nokia</organization>
+    <address>
+        <email>laurent.ciavaglia@nokia.com</email>
+    </address>
+</author>
+
+    <author fullname="Carlos Pignataro" initials="C." surname="Pignataro" role="editor">
+      <organization abbrev="NC State University">North Carolina State University</organization>
+
+      <address>
+        <postal>
+          <country>US</country>
+        </postal>        
+        <email>cpignata@gmail.com</email>
+        <email>cmpignat@ncsu.edu</email>
+      </address>
+    </author>
+
+<author fullname="Marie-Paule Odini" initials="M-P" surname="Odini">
+    <address>
+        <email>mp.odini@orange.fr</email>
+    </address>
+</author>
+
+
+<date day="30" month="12" year="2023" />
+
+<abstract>
+	<t>
+    Reducing humankind's environmental footprint and making technology more sustainable are among the biggest challenges of our age. 
+    Networks play an important part in this challenge.  On one hand, they enable applications that help to reduce this footprint. On the other hand, they contribute to this footprint themselves in no insignificant way.  Methods to make networking technology itself "greener" and to manage and operate networks in ways that reduces their environmental footprint without impacting their utility therefore need to be explored.  This document outlines a corresponding set of opportunities, along with associated research challenges, for networking technology in general and management technology in particular to become "greener", i.e., more sustainable, with reduced greenhouse gas emissions and less negative impact on the environment. 
+    </t>
+</abstract>
+
+</front>
+
+
+<middle>
+<section anchor="intro" title="Introduction">
+<section title="Motivation">
+ <t>
+Climate change and the need to curb greenhouse gas (GHG) emissions have been recognized 
+by the United Nations and by most governments as one of the big challenges of our time.  
+As a result, curbing those emissions is becoming of 
+increasing importance for society and for many industries.  The networking industry is no 
+exception.   
+</t>
+<t>The science behind greenhouse gas emissions and their relationship with climate change 
+is complex. However, there is overwhelming scientific consensus pointing towards a clear 
+correlation between climate change and a rising amount of 
+greenhouse gases in the atmosphere.     
+One greenhouse gas of particular concern, but by no means the only one, is carbon
+dioxide (CO2).  Carbon dioxide is emitted in the process of burning fuels to 
+generate energy that is used, for example, to power electrical devices such as 
+networking equipment.  Notable here is the use of fossil fuels, such as 
+oil, which releases CO2 that had long been removed from the earth's atmosphere, 
+as opposed to the use of renewable or sustainable fuels that do not "add" to the 
+amount of carbon in the atmosphere.   
+</t>
+<t>Greenhouse gas emissions are in turn correlated with the need to power 
+technology, including networks.  Reducing those emissions can be achieved by reducing the 
+amount of fossil fuels needed to generate the energy that is needed to power 
+those networks.  
+This can be achieved by improving the energy mix to include increasing 
+amounts of renewable (and hence sustainable) energy sources such as wind or solar.  
+It can also be achieved 
+by increasing energy savings and improving energy efficiency so that the same outcomes 
+can be achieved while consuming less energy in the first place.
+</t> 
+<t>The amount of CO2 that is emitted in burning fossil fuels to generate energy is also 
+referred to as carbon footprint.  Reducing this footprint to net-zero is hence a major 
+sustainability goal. However, sustainability encompasses also other factors beyond carbon, 
+such as sustainable use of other natural resources, the preservation of natural habitats 
+and biodiversity, and the avoidance of any form of pollution.  
+</t>
+<t>In the context of this document, we refer to networking technology that helps to improve its own networking 
+sustainability  as "green".  Green, in that sense, includes technology that helps 
+to lower networking's greenhouse gas emissions including carbon footprint, which turn includes technology that helps to increase efficiency and realize energy savings as well as facilitating managing networks towards 
+stronger use of renewables. 
+</t>
+<t>
+Arguably, networks can already be considered a "green" technology in that networks enable many applications that allow users and whole industries to save energy and
+become more sustainable in a significant way.  For example, it allows (at least to an extent) to replace travel with teleconferencing; it enables many employees to work from home and "telecommute," thus reducing the need for actual commute; IoT applications that facilitate automated monitoring and control from remote sites help make agriculture more sustainable by minimizing the application of resources such as water and fertilizer; networked smart buildings allow for greater energy optimization and sparser use of lighting and HVAC (heating, ventilation, air conditioning) than their non-networked not-so-smart counterparts.
+</t>
+<t>The IETF has recently initiated a reflection on the energy cost of hosting meetings three times a year (see for instance <xref target="IETF-Net0" />). It conducted a study of the carbon emissions of a typical meeting and found out that 99% of the emissions were due to the air travel. In the same vein, <xref target="Framework" /> compared an in-person with a virtual meeting and found a reduction in energy of 66% for a virtual meeting. These findings confirm that networking technology can reduce emissions when acting as virtual substitution for physical events.   
+</t>
+<t>
+That said, networks themselves consume significant amounts of energy. Therefore, the networking industry has an important role to play in meeting sustainability goals not just by enabling others to reduce their reliance on energy, but by also reducing its own.  Future networking advances will increasingly need to focus on becoming more energy-efficient and reducing carbon footprint, both for economic reasons and for reasons of corporate responsibility. This shift has already begun, and sustainability is already becoming an important concern for network providers. In some cases such as in the context of networked data centers, the ability to procure enough energy becomes a bottleneck prohibiting further growth and greater sustainability thus becomes a business necessity. 
+</t>
+<t>
+For example, in its annual report, Telefónica reports that in 2021, its network's energy consumption per PB of data amounted to 54MWh <xref target="Telefonica2021"/>. This rate has  been dramatically decreasing (a seven-fold factor over six years) although gains in efficiency are being offset by simultaneous growth in data volume. In the same report, it is stated as an important corporate goal to continue on that trajectory and aggressively reduce overall carbon emissions further.    
+</t>
+</section>
+<section title="Approaching the Problem">
+<t>
+An often considered gain in networking sustainability can be made with regards to improving the efficiency with which networks utilize power during their use phase, reducing the amount of energy that is required to provide communication services. However, for a holistic approach other aspects need to be considered as well. 
+</t>
+<t>Environmental footprint is determined not by power consumption alone.  The sustainability of power sources needs to be taken into account as well.  A deployment that includes devices that are less energy-efficient but that are powered by a sustainable energy source can arguably be considered "greener" than a deployment that includes highly efficient device that are powered by Diesel generators.  In fact, in the same Telefónica report mentioned earlier, extensive reliance on renewable energy sources is emphasized. 
+</t>
+<t>Similarly, deployments can take other environmental factors into account that affect carbon footprint.  For example, deployments in which factors such as the need for cooling are reduced, or where excessive heat that is generated by equipment can be put to productive use, will be considered greener than deployments where this is not the case. Examples include deployments in cooler natural surroundings (e.g., in colder climates) where that is an option.  Likewise, manufacturing and recycling of networking equipment are also part of the sustainability equation, as the production itself consumes energy and results in a carbon cost embedded as part of the device itself. Extending the lifetime of equipment may in many cases be preferable over replacing it earlier with equipment that is slightly more energy-efficient but that requires the embedded carbon cost to be amortized over a much shorter period of time.   
+</t>
+<t>Management has an outsized role to play in approaching those problems. To reduce the amount of energy used, network providers need to maximize ways in which they make use of scarce resources and eliminate use of resources which are not needed. They need to optimize the way in which networks are deployed, which resources are placed where, how equipment lifecycles and upgrades are being managed - all of which constitute classic operational problems. As best practices, methods, and algorithms are developed, they need to be automated to the greatest extent possible and migrated over time into the network and performed on increasingly short time scales, transcending management and control planes.  
+</t>
+</section>
+<section title="Structuring the Problem Space">
+<t>
+From a technical perspective, multiple vectors along which networks can be made "greener" should be considered:
+<list style="symbols">
+<t>
+Equipment level:<br /><br />Perhaps the most promising vector for improving networking sustainability concerns the network equipment itself.  
+At the most fundamental level, networks (even softwarized ones) involve appliances, i.e., equipment that relies on electrical power to perform its function. There are two distinct layers with different opportunities for improvement:
+
+<list style="symbols">
+    <t>Hardware: Reducing embedded carbon during material extration and manufacturing,  improving energy and power efficiency during operations, and reuse, repurpose, and recycle motions.</t>
+    <t>Software: Improving sofware energy efficiency, maximizing utilization of processing devices, allowing for software to interact with hardware to improve sustainability.</t>
+</list>
+
+Beyond making network appliances merely more energy-efficient, there are other important ways in which equipment can help networks become greener.  This includes aspects such as support for port power saving modes or downspeeding of links to reduce power consumption for resources that are not fully utilized.  To fully tap into the potential of such features requires accompanying management functionality, for example in order to determine when it is "safe" to downspeed a link or enter a power saving mode, and manage the network in such a way that conditions to do so are maximized.  
+
+<br /><br />
+Most importantly from a management perspective, improving sustainability at the equipment level involves providing management instrumentation that allows to precisely monitor and manage power usage and doing so at different levels of granularity, for example accounting separately for the contributions of CPU, memory, and different ports. This enables (for example) controller applications to optimize energy usage across the network and that leverage control loops to assess the effectiveness (e.g. in terms of reduction in power use) of measures that are taken. 
+
+<br /><br />
+As a side note, the terms "device" and "equipment", as used in the context of this draft, are used to refer to networking equipment.  We are not taking into consideration end-user devices and endpoints such as mobile phones or computing equipment.  
+</t>
+<t>
+Protocol level:<br /><br />Energy-efficiency and greenness are aspects that are rarely considered when designing network protocols.  This suggests that there may be plenty of untapped potential.  
+Some aspects involve designing protocols in ways that reduce the need for redundant or wasteful transmission of data to allow not only for better network utilization, but greater goodput per unit of energy being consumed.  Techniques might include approaches that reduce the "header tax" incurred by payloads as well as methods resulting in the reduction of wasteful retransmissions.  Similarly, there may be cases where chattiness of protocols may be preventing equipment from going into sleep mode.  Designing protocols that reduce chattiness in such scenarios, for example, that reduce dependence on periodic updates or heartbeats, may result in greener outcomes. Likewise, aspects such as restructuring addresses in ways that allow to minimize the size of lookup tables and associated memory sizes and their energy use can play a role as well. <br /><br />
+Another role of protocols concerns the enabling of management functionality to improve energy efficiency at the network level, such as discovery protocols that allow for quick adaptation to network components being taken dynamically into and out of service depending on network conditions, as well as protocols that can assist with functions such as the collection of energy telemetry data from the network.  
+</t>
+<t>
+Network level<br /><br />Perhaps the greatest opportunities to realize power savings exist at the level of the network as whole. Many of these opportunities are directly related to management functionaliy. For example, optimizing energy efficiency may involve directing traffic in such a way that it allows for isolation of equipment that may at the moment not be needed so that it can be powered down or brought into power-saving mode. By the same token, traffic should be directed in a way that requires bringing additional equipment online or out of power-saving mode in cases where alternative traffic paths are available for which the incremental energy cost would amount to zero.  Likewise, some networking devices may be rated less "green" and more power-intensive than others or powered by less-sustainable energy sources.  Their use might be avoided unless during periods of peak capacity demands.  Generally, incremental carbon emissions can be viewed as a cost metric that networks should strive to minimize and consider as part of routing and of network path optimization. 
+</t>
+<t>
+Architecture level<br /><br />The current network architecture supports a wide range of applications, but does not take into account energy efficiency as one of its design parameters. One can argue that the most energy efficient shift of the last two decades has been the deployment of Content Delivery Network overlays: while these were set up to reduce latency and minimize bandwidth consumption, from a network perspective, retrieving the content from a local cache is also much greener.  What other architectural shifts can produce energy consumption reduction?
+</t>
+</list>
+</t>
+<t>
+We believe that network standardization organizations in general, and IETF in particular, can make important contributions to each of these vectors. In this document, we will therefore explore each of those vectors in further detail and for each point out specific challenges for IETF. As our starting point, we borrow some material from a prior paper, <xref target="GreenNet22"/>. For this document, this material has been both expanded (for example, in terms of some of the opportunities) and pruned (for example, in terms of background on prior scholarly work). In addition, this document focuses on and attempts to articulate specific challenges relating to work that could be championed by the IETF to make a difference. 
+</t>
+
+</section>
+</section>
+	
+	<section title="Definitions and Acronyms">
+
+<t>
+Below you find acronyms used in this draft:  
+<list style="hanging" hangIndent='7'>
+
+<t hangText="Carbon Footprint:"><br />As used in this document, the amount of carbon emissions associated with the use or deployment of technology, usually correlated with the amount of energy consumption</t> 
+<t hangText="CDN:">Content Delivery Network</t>
+<t hangText="CPU:">Central Processing Unit, that is the main processor in a server</t>
+<t hangText="DC:">Data Center</t>
+<t hangText="FCT:">Flow Completion Time</t>
+<t hangText="GHG:">Greenhouse Gas</t>
+<t hangText="GPU:">Graphical Processing Unit</t>
+<t hangText="HVAC:">Heating, Ventilation, Air Conditioning</t>
+<t hangText="ICN:">Information Centric Network</t>
+<t hangText="IGP:">Interior Gateway Protocol</t>
+<t hangText="IoT:">Internet of Things</t>
+<t hangText="IPU:">Infrastructure Processing Units</t>
+<t hangText="LEED:">Leadership in Energy and Environmental Design, a green building rating system</t>
+<t hangText="LEO:">Low Earth Orbit</t>
+<t hangText="LPM:">Longest Prefix Match, a method to look up prefixes in a forwarding element</t>
+<t hangText="MPLS:">Multi-Path Label Switchin</t>
+<t hangText="MTU:">Maximum Transmission Unit, the largest packet size that can be transmitted over a network</t>
+<t hangText="NIC:">Network Interface Card</t>
+<t hangText="QoS, QoE:">Quality of Service, Quality of Experience</t>
+<t hangText="QUIC:">Quick UDP Internet Connections</t>
+<t hangText="SNIC:">Smart NIC</t>
+<t hangText="SDN:">Software-Defined Networking</t>
+<t hangText="TCP:">Transport Control Protocol</t>
+<t hangText="TE:">Traffic Engineering</t>
+<t hangText="TPU:">Tensor Processing Unit</t>
+<t hangText="WAN:">Wide Area Network</t>
+
+</list>
+</t>
+</section>
+
+<!-- 
+<section title="The Dynamics of Combining Sustainability and Network Management">
+<t>
+    As it was mentioned and will be further explored in detail, improving energy efficiency is a key way to improve sustainability. However, this process and reduction is only meaningful within its larger context.
+</t>
+<t>
+    There is a duality and dialectic in this interaction. First, in order to provide those hardware and software improvements, research and development need to take place, which bring their own carbon footprint. Further, if the improvement is in a much more energy efficient Chip, CPU, GPU, or piece of hardware, deploying the next generation of hardware (material acquisition, manufacturing, supply-chain, transportation) and end-of-lifing the older generation creates and added carbon footprint. Consequently, there are values that maximize sustainability at a global basis, which are neither at both ends: it is not about leaving old hardware and software for overextended periods, and it is also not about replacing and rearchitecting weekly.
+</t>
+<t>
+    Similarly, at the protocol and architectural levels there is an equivalent duality: what is the "sweet-spot" on which protocols can be improved (for them to be less energy-wastful), and when to use protocol interactions (e.g., extensions) to carry sustainability data and information (i.e., sustainability telemetry and metrics) and to execute actions.
+</t>
+<t>
+    Finally, there needs to be given consideration to Jevons paradox, particularly as the energy efficiency optimization (in hardware as well as in software) can bring important operational savings in cost.
+</t>
+</section>
+-->
+
+<section title="Network Energy Consumption Characteristics and Implications" anchor="sec:implications">
+<t>
+Carbon footprint and, with it, greenhouse gas emissions are determined by a number of factors. A main factor is network energy consumption, as the energy consumed can be considered a proxy for the burning of fuels required for corresponding power generation.  Network energy consumption by itself does not tell the whole story, as it does not take the sustainability of energy sources and energy mix into account.  Likewise, there are other factors such as hidden carbon cost reflecting the carbon footprint expended in manufacturing of networking hardware.  Nonetheless, network energy consumption is an excellent predictor for carbon footprint and its reduction key to sustainable solutions.  Exploring possibilities to improve energy efficiency is hence a key factor for greener, more sustainable, less carbon-intensive networks. 
+</t>
+<t>For this, it is important to understand some of the characteristics of power consumption by networks and which aspects contribute the most.  This helps to identify where the greatest potential not just for power savings but also for sustainability improvements lies.  
+</t>
+<t>
+Power is ultimately drawn by devices.  Devices are not monoliths but are composed of multiple components. The power consumption of the device can be divided into the consumption of the core device - the backplane and CPU, if you will - as well as additional consumption incurred per port and line card.  In addition,  GPU and TPU may be used as well in the network and may have different power consumption profiles.
+Furthermore, it is important to understand the difference between power consumption when a resource is idling versus when it is under load. This helps to understand the incremental cost of additional transmission versus the initial cost of transmission. 
+</t>
+<t>
+In typical networking devices, only roughly half of the energy consumption is associated with the data plane <xref target="Bolla2011energy"/>. 
+An idle base system typically consumes more than half of the power over the same system running at full load <xref target="Chabarek08"/>, <xref target="Cervero19"/>.  
+Generally, the cost of sending the first bit is very high, as it requires powering up a device, port, etc.
+The incremental cost of transmission of additional bits (beyond the first) is many orders of magnitude lower. Likewise, the incremental cost of incremental CPU and memory needed to process additional packets becomes fairly negligible. 
+</t>
+<t> This means that a device's power consumption does not increase linearly with the volume of forwarded traffic.  Instead, it resembles more of a step function in which power consumption stays roughly the same up to a certain volume of traffic, followed by a sudden jump when additional resources need to be procured to support a higher volume of traffic. 
+</t>
+<t>  
+By the same token, generally speaking it is more energy-efficient to transmit a large volume of data in one burst (and subsequently turning off or downspeeding the interface when idling), instead of continuously transmitting at a lower rate. In that sense it can be the duration of the transmission that dominates the energy consumption, not the actual data rate. 
+</t>
+<t>
+The implications on green networking from an energy-savings standpoint are significant.  
+Of utmost importance are schemes that allow for "peak shaving": networks are typically dimensioned for periods of peak demand and usage, yet any excess capacity during periods of non-peak usage does not result in corresponding energy savings.  Peak shaving techniques that allow to reduce peak traffic spikes and thus waste during non-peak periods may result in outsize sustainability gains.  Peak shaving could be accomplished by techniques such as spreading spikes out over geographies (e.g. routing traffic across more costly but less utilized routes) or over time (e.g. postponing and buffering non-urgent traffic).  
+</t>
+<t>Likewise, large gains can be made whenever network resources can effectively be taken offline for at least some of the time, managing networks in a way that enables resources to be removed from service so they can be powered down (or put into a more energy-saving state, such as when downspeeding ports) while not needed.  Of course, any such methods need to take into account the overhead of taking resources offline and bringing them back online.  This typically takes some amount of time, requiring accurate predictive capabilities to avoid situations in which network resources are not available at times when they would be needed.  In addition, there is additional overhead such as synchronization of state to be accounted for. 
+</t>
+<t> 
+At the same time, any non-idle resources should be utilized to the greatest extent possible as the incremental energy cost is negligible. Of course, this needs to occur while still taking other operational goals into consideration, such as protection against failures (allowing for readily available redundancy and spare capacity in case of failure) and load balancing (for increased operational robustness). 
+As data transmission needs tend to fluctuate wildly and occur in bursts, any optimization schemes need to be highly adaptable and allow for control loops at very fast time scales. 
+</t>
+<t>
+Similarly, for applications where this is possible, it may be desirable to replace continuous traffic at low data rates with traffic that is sent in burst at high data rates, in order to potentially maximize the time during which resources can be idled. 
+</t>
+
+<t>
+As a result, emphasis needs to be given to technology that allows for example to (at the device level) exercise very efficient and rapid discovery, monitoring, and control of networking resources so that they can be dynamically be taken offline or back into service, without (at the network level) requiring extensive convergence of state across the network or recalculation of routes and other optimization problems, and (at the network equipment level) support rapid power cycle and initialization schemes.  There may be some lessons that can be applied here from IoT,
+which has long had to contend with power-constrained end devices that need to spend much of their time in power saving states to conserve battery.   
+</t>
+</section>
+
+<section title="Challenges and Opportunities - Equipment Level" anchor="sec:device">
+<t>
+We are categorizing challenges and opportunities to improve sustainability at the network equipment level along the following lines:
+<list style="symbols">
+<t>Hardware and manufacturing. Related opportunities are arguably among the most obvious and perhaps "largest". However, solutions here may lie largely outside IETF's scope. </t>
+<t>Visibility and instrumentation. Instrumenting equipment to provide visibility into how they consume energy is key to management solutions and control loops to facilitate optimization schemes. </t>
+</list>
+</t>
+<section title="Hardware and Manufacturing"> 
+<t>
+
+Perhaps the most obvious opportunities to make networking technology more energy efficient exist at the equipment level.  After all, networking involves physical equipment to receive and transmit data.  Making such equipment more power efficient, have it dissipate less heat to consume less energy and reduce the need for cooling, making it eco-friendly to deploy, sourcing sustainable materials and facilitating recycling of equipment at the end of its lifecycle all contribute to making networks greener.  More specific and unique to networking are schemes to reduce energy usage of transmission technology from wireless (antennas) to optical (lasers).  
+</t>
+<t>One critical aspect of the energy cost of networking is the cost to manufacture and deploy the networking equipment. In addition, even the development process itself comes with its own carbon footprint.  This is outside of the scope of this document: we only consider the energy cost of running the network, as this is where the IETF can play a role. However, a holistic approach would include into this the embedded energy that is included in the networking equipment. One aspect for the IETF may be to consider impact of deploying new protocols on the rate of obsolescence of the equipment. For instance, incremental approaches that do not require to replace equipment right away - or even extend the lifetime of deployed equipment - would have a lower energy footprint.  This is one important benefit also of technologies such as Software-Defined Networking and Network Function Virtualization, as they may allow support of new networking features through software updates without requiring hardware replacements.  
+</t>
+<t>An attempt to compute not only the energy of running a network, but also the energy embedded into manufacturing the equipment is described in <xref target="Emergy"/> . This is denoted by "emergy", a portmanteau for embedded energy. Likewise, an approach to recycling equipment and a proof of concept using old cell phones recycled into a "junkyard" data center are described in <xref target="Junkyard"/>. 
+</t>
+<t>One trade-off to consider at this level is the selection of a platform that can be hardware-optimized for energy efficiency vs a platform that is versatile and can run multiple functions. For instance, a switch could run on an efficient hardware platform, or run as a software module (container) over some multi-purpose platform. While the first one is operationally more energy efficient, it may have a higher embedded energy from a smaller scale, less efficient production process, as well as a shorter shelf life once new functions need to be added to the platform.   
+</t>
+</section>
+<section title="Visibility and Instrumentation" anchor="sec:instrum">
+<t>
+Beyond "first-order" opportunities as outlined in the previous subsection, network equipment just as importantly plays an important role to enable and support green networking at other levels. Of prime importance is the equipment's ability to provide visibility to management and control plane into its current energy usage. Such visibility enables control loops for energy optimization schemes, allowing applications to obtain feedback regarding the energy implications of their actions, from setting up paths across the network that require the least incremental amount of energy to quantifying metrics related to energy cost used to optimize forwarding decisions. Absent an actual measurement of energy usage (and until such measurement is put in place), the network equipment could advertise some proxy of its power consumption (say, a labelling scheme as silver, gold, platinum similar to the LEED sustainability metric in building codes or the Energy Star label in home appliances; or a description of the type of the device as using CPU vs GPU vs TPU processors with different power profiles).
+</t>
+<t>
+One prerequisite to such schemes is to have proper instrumentation in place that allows to monitor current power consumption at the level of networking devices as a whole, line cards, and individual ports.  Such instrumentation should also allow to assess the energy efficiency and carbon footprint of the device as a whole. In addition, it will be desirable to relate this power consumption to data rates as well as to current traffic, for example, to indicate current energy consumption relative to interface speeds, as well as for incremental energy consumption that is expected for incremental traffic (to aid control schemes that aim to "shave" power off current services or to minimize the incremental use of power for additional traffic).  This is an area where the current state of the art is sorely lacking and standardization lags behind.  For example, as of today, standardized YANG data models <xref target="RFC7950"/> for network energy consumption that can be used in conjunction with management and control protocols have yet to be defined. 
+</t>
+<t>To remedy this situation, an effort to define sets of green networking metrics is currently under way <xref target="I.D.draft-cx-green-metrics"/>.  An agreed set of such metrics will provide the basis for further steps such as the implementation of corresponding data models as part of management and control instrumentation.  
+</t>
+<t>
+Instrumentation should also take into account the possibility of virtualization, introducing layers of indirection to assess the actual energy usage. For example, virtualized networking functions could be hosted on containers or virtual machines which are hosted on a CPU in a data center instead of a regular network appliance such as a router or a switch, leading to very different power consumption characteristics. For example, a data center CPU could be more power efficient and consume power more proportionally to actual CPU load. Instrumentation needs to reflect these facts and facilitate attributing power consumption in a correct manner. 
+</t>
+<t>
+Beyond monitoring and providing visibility into power consumption, control knobs are needed to configure energy saving policies. For instance, power saving modes are common in endpoints (such as mobile phones or notebook computers) but sorely lacking in networking equipment.  
+</t>
+<t>
+The following summarizes some challenges and opportunities that can provide the basis for IETF-led advances:
+<list style="symbols">
+	<t>Basic equipment categorization as "energy-efficient" (or not) as a first step to identify immediate potential improvements, akin to the EnergyStar program from the US's Environmental Protection Agency. </t> 
+    <t>Equipment instrumentation advances for improved energy-awareness; definition and standardization of granular management information.</t>
+    <t>Virtualized energy and carbon metrics and assessment of their effectiveness in solutions that optimize carbon footprint also in virtualized environments (including SDN, network slicing, network function virtualization, etc.). </t>
+    <t>Certification and compliance assessment methods that ensure that green instrumentation cannot be manipulated to give false and misleading data.</t>
+    <t>Methods that allow to account for energy mix powering equipment, to facilitate solutions that optimize carbon footprint and minimize pollution beyond mere energy efficiency <xref target="Hossain2019"/>.</t>
+</list>
+</t>
+</section>
+</section>
+<section title="Challenges and Opportunities - Protocol Level" anchor="sec:protocol">
+<t>
+There are several opportunities to improve network sustainability at the protocol level.  We characterize them along several categories. The first and arguably most impactful category concerns protocols that enable carbon footprint optimization schemes at the network level and management towards those goals. Other categories concern protocols designed to optimize data transmission rates under energy considerations, protocols designed to reduce the volume of data to be transmitted, and protocl aspects related to network addressing schemes. While those categories may be less impactful, even areas with smaller gains should not be left unexplored.
+</t>
+<t>
+There is also substantial work in the area of IoT, which has had to contend with 
+energy-constrained devices for a long time.  Much of that work was motivated not 
+by sustainability concerns but practical concerns such as battery life.  However,
+many aspects appear to also apply in the context of sustainability, such as reducing 
+chattiness to allow IoT equipment to go into low-power mode.  Accordingly, there is 
+opportunity to extend IoT work to more generalized scenarios.  The	
+ 	   use of power-constrained protocols into the wider Internet happens	
+ 	   regularly.  For instance, ARM-based chipsets initially designed for	
+ 	   energy-efficiency in battery-operated mobile devices have been	
+ 	   embraced in data centers for a similar trajectory. 
+</t>
+<section title="Protocol Enablers for Carbon Optimization Mechanisms" anchor="NetworkEnergySaving">
+<t>
+As will be discussed in <xref target="sec:network"/>, energy-aware and pollution-aware schemes can help improve network sustainability but require awareness of related data.  To facilitate such schemes, protocols are needed that are able to discover what links are available along with their energy efficiency. For instance, links may be turned off in order to save energy and turned back on based upon the elasticity of the demand. Protocols should be devised to discover when this happens, and to have a view of the topology that is consistent with frequent topology updates due to power cycling of the network resources.
+</t>
+<t>
+Also, protocols are required to quickly converge onto an energy-efficient path once a new topology is created by turning links on/off. Current routing protocols may provide for fast recovery in the case of failure. However, failures are hopefully relatively rare events, while we expect an energy efficient network to aggressively try to turn off links. 
+</t>
+<t>
+Some mechanism is needed to present to the management layer a view of the network that identifies opportunities to turn resources off (routers/links) while still providing an acceptable level of Quality of Experience (QoE) to the users. This gets more complex as the level of QoE shifts from the current Best Effort delivery model to more sophisticated mechanisms with, for instance, latency, bandwidth or reliability guarantees. 
+</t>
+<t>Similarly, schemes might be devised in which links across paths with a favorable energy mix are preferred over other paths. This implies that the discovery of topology should be able support corresponding parameters.  More generally speaking, any mechanism that provides applications with network visibility is a candidate for scrutinization as to whether it should be extended to provide support for sustainability-related parameters.    
+</t>
+<t>
+The following summarizes some challenges and opportunities that can provide the basis for IETF-led advances:
+<list style="symbols">
+    <t>Protocol advances to enable rapidly taking down, bring back online, and discover availability and power saving status of networking resources while minimizing the need for reconvergence and propagation of state.</t>
+    <t>Assess which protocols could be extended with energy- and sustainability-related parameters in ways that would enable "greener" networking solutions, and exploring those solutions.  </t>
+</list>
+</t>
+<!-- CW: QoS, QoE and then EoS Energy of Service? --> 
+</section>
+<!-- End of Enabling Energy Saving Mechanisms subsection-->
+
+
+<section title="Protocol Optimization" anchor="TrafficAdaptation">
+<t>
+The second category involves designing protocols in such a way that the rate of transmission is chosen to maximize energy efficiency.  For example, Traffic Engineering (TE) can be manipulated to impact the rate adaptation mechanism <xref target="Ren2018jordan"/>. By choosing where to send the traffic, TE can artificially congest links so as to trigger rate adaptation and therefore reduce the total amount of traffic. Most TE systems attempt to minimize Maximal Link Utilization (MLU) but energy saving mechanisms could decide to do the opposite (maximize minimal link utilization) and attempt to turn off some resources to save power.  
+</t>
+<t>Another example is to set up the proper rate of transmission to minimize the flow completion time (FCT) so as to enable opportunities to turn off links. In a wireless context, <xref target="TradeOff" /> studies how setting the proper initial value for the congestion window can reduce the FCT and therefore allow the equipment to go faster into a low-energy mode. By sending the data faster, the energy cost can be significantly reduced. This is a simple proof of concept, but protocols that allow for turning links into a low-power mode by transmitting the data over shorter periods could be designed for other types of networks beyond Wi-Fi access. This should be done carefully: in the limit, a high rate of transmission over a short period of time may create bursts that the network would need to accommodate, with all attendant complications of bursty traffic. We conjecture there is a sweet spot between trying to complete flows faster while controlling for burstiness in the network. It is probably advisable to attempt to send traffic paced yet in bulk rather than spread out over multiple round trips. This is an area of worthwhile exploration.
+</t>
+<t>
+The following summarizes some challenges and opportunities that can provide the basis for IETF-led advances:
+<list style="symbols">
+    <t>Protocol advances that allow greater control over traffic pacing to account for fluctuations in carbon cost, i.e., control knobs to "bulk up" transmission over short periods or to smoothen it out over longer periods.  </t>
+    <t>Protocol advances that allow to optimize link utilization according to different goals and strategies (including maximizing minimal link utilization vs minimizing maximal link utilization, etc.)</t>
+    <t>Assessments of the carbon impact of such strategies.</t>
+</list>
+</t>
+<!-- CW: most transport protocols attempt to find the operating point where traffic is sent without dropping packet. TCPs seesaw mechanism is rather crude for this purpose. New protocols such as BBR should be more efficient in that respect. I feel this section can be beefed up a bit. Also we can circle back to your point in the intro that bursty transmission of traffic is more energy efficient. This is true at the edge only, I would assume, since bursts are multiplexed in the core. That said: having some burst when there are few flows, and then some more fluid behavior when there are many could be suggested. For instance, having some "energy gateway" that buffers the burst from the domain with few flows and then transmit them to the domain with more flows, and back on the other end of the connection -->
+</section>
+<section title="Data Volume Reduction" anchor="DataVolume">
+<t>
+The first category involves designing protocols in such a way that they reduce the volume of data that needs to be transmitted for any given purpose. Loosely speaking, by reducing this volume, more traffic can be served by the same amount of networking infrastructure, hence reducing overall energy consumption. Possibilities here include protocols that avoid unnecessary retransmissions.  At the application layer, protocols may also use coding mechanisms that encode information close to the Shannon limit.  Currently, most of the traffic over the Internet consists of video streaming and encoders for video are already quite efficient and keep improving all the time, resulting in energy savings as one of many advantages (of course being offset by increasingly higher resolution). However, it is not clear that the extra work to achieve higher compression ratios for the payloads results in a net energy gain: what is saved over the network may be offset by the compression/decompression effort. Further research on this aspect is necessary.  
+</t>
+<t>At the transport protocol layer, TCP and to some extent QUIC react to congestion by dropping packets. This is a highly energy inefficient method to signal congestion, since the network has to wait one RTT to be aware that the congestion has occurred, and since the effort to transmit the packet from the source up until it is dropped ends up being wasted.  This calls for new transport protocols that react to congestion without dropping packets. ECN <xref target="RFC2481"/> is a possible solution, however not widely deployed. DC-TCP <xref target="Alizadeh2010DCTCP"/> is tuned for Data Centers, L4S is an attempt to port similar functionality to the Internet <xref target="RFC9330"/>. Qualitative Communication <xref target="QUAL"/> <xref target="Westphal2021qualitative"/> allows the nodes to react to congestion by dropping only some of the data in the packet, thereby only partially wasting the resource consumed by transmitted the packet up to this point.  Novel transport protocols for the WAN can ensure that no energy is wasted transmitting packets that will be eventually dropped. 
+</t>
+<t>Another solution to reduce the bandwidth of network protocols by reducing their header tax, for example applying header compression. An example in IETF is <xref target="RFC3095"/>. Again, reducing protocol header size saves energy to forward packets, but at the cost of maintaining a state for compression/decompression, plus computing these operations. The gain from such protocol optimization further depends on the application and whether it sends packets with large payloads close to the MTU (the header tax and any savings here are very limited), or whether it sends packets with very small payload size (making the header tax more pronounced and savings more significant). 
+</t> 
+<t>
+An alternative to reducing the amount of protocol data is to design routing protocols that are more efficient to process at each node. For instance, path based forwarding/labels such as MPLS <xref target="RFC3031"/> facilitate the next hop look-up, thereby reducing the energy consumption. It is unclear if some state at router to speed up look up is more energy efficient that "no state + lookup" that is more computationally intensive. Other methods to speed up a next-hop lookup include geographic routing (e.g., <xref target="Herzen2011PIE"/>). Some network protocols could be designed to reduce the next hop look-up computation at a router.  It is unclear if Longest Prefix Match (LPM) is efficient from an energy point of view or if constitutes a significant energy burden for the operation of a router. 
+</t>
+<t>Beyond the volume of data itself, another consideration is the number of messages and chattiness of the protocol.  Some protocols rely on frequent periodic updates or heartbeats, which may prevent equipment to go into sleep mode. In such cases, it makes sense to explore the the use of feasible alternatives that rely on different communication patterns and fewer messages.  
+</t>
+<t>
+The following summarizes some challenges and opportunities that can provide the basis for IETF-led advances in this space:
+<list style="symbols">
+    <t>Assessments of energy-related tradeoffs regarding protocol design space and tradeoffs, such as maintaining state versus more compact encodings or extra computation for transcoding operations versus larger data volume. </t>
+    <t>Protocol advances for improving the ratio of goodput to throughput and to reduce waste: reduction in header tax, in protocol verbosity, in need for retransmissions, improvements in coding, etc. </t>
+    <t>Protocols that allow to manage transmission patterns in ways that facilitate periods of link inactivity, such as burstiness and chattiness. </t> 
+</list>
+</t>
+</section>
+
+<section title="Network Addressing" anchor="Addressing">
+<t>
+There may be other ways to shave off energy usage from networks.  One example concerns network addressing.  Address tables can get very large, resulting in large forwarding tables that require considerable amount of memory, in addition to large amounts of state needing to be maintained and synchronized.  From an energy footprint perspective, both can be considered wasteful and offer opportunities for improvement.   At the protocol level, rethinking how addresses are structured can allow for flexible addressing schemes that can be exploited in network deployments that are less energy-intensive by design.  This can be complemented by supporting clever address allocation schemes that minimize the number of required forwarding entries as part of deployments.   
+</t>
+<t>Alternatively, the address could be designed so as to allow for more efficient processing than LPM. For instance, a geographic type of addressing (where the next hop is computed as a simple distance calculation based on the respective position of the current node, of its neighbors and of the destination) <xref target="Herzen2011PIE"/> could be potentially more energy-efficient. 
+</t>
+<t>
+The following summarizes some challenges and opportunities that can provide the basis for IETF-led advances in this space:
+<list style="symbols">
+    <t>Devise methods to assess the magnitude of the carbon footprint that is associated with addressing schemes.</t>
+    <t>Devise methods to improve addressing schemes, as well as address assignment schemes, to minimize their footprint.</t>
+</list>
+</t>
+</section> 
+</section><!-- End of Protocol Level Section-->
+
+<section title="Challenges and Opportunities - Network Level" anchor="sec:network">
+<section title="Network Optimization and Energy/Carbon/Pollution-Aware Networking" anchor="sec:ean">
+<t>
+Networks have been optimized for many years under many criteria, for example to optimize (maximize) network utilization and to optimize (minimize) cost.  Hence, it is straightforward to add optimization for "greenness" (including energy efficiency, power consumption, carbon footprint) as important criteria.  
+</t>
+<t>
+This includes assessing the carbon footprints of paths and optimizing those paths so that overall footprint is minimized, then applying techniques such as path-aware networking or segment routing <xref target="RFC8402"/> to steer traffic along those paths.  (As mentioned earlier, other proxy measures 
+could be used for carbon footprint, such as an energy-efficiency ratings of traversed equipment.)
+It also includes aspects such as considering the incremental carbon footprint in routing decisions.  Optimizing cost has a long tradition in networking; many of the existing mechanisms can be leveraged for greener networking simply by introducing carbon footprint as a cost factor. Low-hanging fruit include the inclusion of carbon-related parameters as a cost parameter in control planes, whether distributed (e.g., IGP) or conceptually centralized via SDN controllers. Likewise, there are opportunities in right-placing functionality in the network.  An example concerns placement of virtualized network functions in carbon-optimized ways - for example, cohosted on fewer servers in close proximity to each other in order to avoid unnecessary overhead in long-distance control traffic.  
+</t>
+<t>
+Other opportunities concern adding carbon-awareness to dynamic path selection schemes.  This is sometimes also referred to as "energy-aware networking" (respectively "pollution-aware networking" <xref target="Hossain2019"/> or "carbon-aware networking", when carbon footprint related parameters beyond pure energy consumption are taken into account).  Again, considerable energy savings can potentially be realized by taking resources offline (e.g., putting them into power-saving or hibernation mode) when they are not currently needed under current network demand and load conditions. Therefore, weaning such resources from traffic becomes an important consideration for energy-efficient traffic steering.  This contrasts and indeed conflicts with existing schemes that typically aim to create redundancy and load-balance traffic across a network to achieve even resource utilization. This usually occurs for important reasons, such as making networks more resilient, optimizing service levels, and increasing fairness.  One of the big challenges hence concerns how resource weaning schemes to realize energy savings can be accommodated while preventing the cannibalization of other important goals, counteracting other established mechanisms, and avoiding destabilization of the network. 
+</t>
+<t>An opportunity may lie in making a distinction between "energy modes" of different domains. For instance, in a highly trafficked core, the energy challenge is to transmit the traffic efficiently. The amount of traffic is relatively fluid (due to multiplexing of multiple sessions) and the traffic is predictable. In this case, there is no need to optimize on a per session basis nor even at a short time scale. In the access networks connecting to that core, though, there are opportunities for this fast convergence: traffic is much more bursty, less predictable and the network should be able to be more reactive. Other domains such as DCs may have also more variable workloads and different traffic patterns. 
+</t>
+<t>
+The following summarizes some challenges and opportunities that can provide the basis for IETF-led advances in this space:
+<list style="symbols">
+    <t>Devise methods for carbon-aware traffic steering and routing; treat carbon footprint as a traffic cost metric to optimize.</t>
+    <t>Apply ML and AI methods to optimize networks for carbon footprint; assess applicability of game theoretic approaches.</t>
+    <t>Articulate and, as applicable, moderate tradeoffs between carbon awareness and other operational goals such as robustness and redundancy. </t>    
+    <t>Extend control-plane protocols with carbon-related parameters. </t>
+    <t>Consider security issues imposed by greater energy awareness, to minimize the new attack surfaces that would allow an adversary to turn off resources or to waste energy.</t>
+</list>
+</t>
+</section>
+<section title="Assessing Carbon Footprint and Network-Level Instrumentation">
+<t>
+As an important prerequisite to capture many of the opportunities outlined in <xref target="sec:ean"/>, good abstractions (and corresponding instrumentation) that allow to easily assess energy cost and carbon footprint will be required. These abstractions need to account for not only for the energy cost associated with packet forwarding across a given path, but related cost for processing, for memory, for maintaining of state, to result in a holistic picture. 
+</t>
+<t> Optimization of carbon footprint involves in many cases trade-offs that involve not only packet forwarding but also aspects such as keeping state, caching data, or running computations at the edge instead of elsewhere.  (Note: there may be a differential in running a computation at an edge server vs. at an hyperscale DC. The latter is often better optimized than the latter.)  Likewise, other aspects of carbon footprint beyond mere energy-intensity should be considered. For instance, some network segments may be powered by more sustainable energy sources than others, and some network equipment may be more environmentally-friendly to build, deploy and recycle, all of which can be reflected in abstractions to consider.
+</t>
+<t>Assessing carbon footprint at the network level requires instrumentation that associates that footprint not just with individual devices (as outline in <xref target="sec:instrum"/> but relates it also to concepts that are meaningful at the network level, i.e., to flows and to paths.  For example, it will be useful to provide visibility into the carbon intensity of a path: Can the carbon cost of traffic transmitted over the path be aggregated? Does the path include outliers, i.e., segments with equipment with a particularly poor carbon footprint?  
+</t>
+<t>Similarly, how can the carbon cost of a flow be assessed?  That might serve many purposes beyond network optimization, from the option to introduce green billing and charging schemes to the ability to raise carbon awareness by end users.    
+</t>
+<!-- CW: One key class of network that is potentially more energy intensive, but uses mostly renewable energy is that of satellite networks, and in particular Low Earth Orbit constellations.  Wireless networks are less energy efficient than fiber, as there is more signal loss and the transmitted energy is less focused towards the destination (this has to be qualified for free-space optical transmission of course). Therefore transmitting a signal into space and back comes with an arguably high energy cost. However, satellites cannot be connected to a power grid, and therefore have the requirement to be energy independent. Solar arrays provide the energy to power up the satellites, with a higher efficienty outside of the atmosphere. Any discussion of the "greenness" of such network should take into account the energy cost of building up an infrastructure in space and how this energy "capital expense" is amortized over time with the lower "operating expense" of using renewable energy. -->
+<t>
+The following summarizes some challenges and opportunities that can provide the basis for IETF-led advances in this space:
+<list style="symbols">
+  <t>Devise methods to assess, to estimate, to predict carbon-intensity of paths.</t>
+  <t>Devise methods to account for carbon footprint of flows and networking services.</t> 
+</list>
+</t>
+</section>
+<section title="Dimensioning and Peak Shaving">
+<t>
+As mentioned in <xref target="sec:implications"/>, the overall energy usage of a network is in large part determined by how the network is dimensioned, specifically: which and how many pieces of network equipment are deployed and turned on. A significant portion of energy is drawn even when simply in idle state.  Minimizing the amount of equipment that needs to be turned on in the first place presents hence one of the biggest energy saving opportunities.  
+</t>
+<t>
+Network deployments are generally dimensioned for periods of peak traffic, resulting in excess capacity during periods of non-peak usage that nonetheless consumes power.  Shaving peak usage may thus result in outsized sustainability gains, as it reduces not only energy usage during peak traffic, but more importantly waste during non-peak periods. 
+</t>
+<t>While traffic volume is largely a function of demand traffic that network providers have little influence over, some peak shaving cand nevertheless be accomplished by techniques such as spreading spikes out over geographies (e.g. redirecting some traffic across more costly but less utilized routes, particular in cases when traffic spikes are of a more local or reginal nature) or over time (e.g. postponing non-urgent traffic, storing or buffering using edge clouds or extra storage where feasible). 
+</t>
+<t>To make techniques effective, accurate learning and prediction of traffic patterns is required. This includes the ability to perform forecasting to ensure that additional resources can be spun up in time should it be needed.  Clearly, this presents interesting challenges, yet also opportunities for technical advances to make a difference.
+</t>
+<t>
+The following summarizes some challenges and opportunities that can provide the basis for IETF-led advances in this space:
+<list style="symbols">
+  <t>Support for methods that allow to monitor and forecast traffic demand, involving new mechanisms and/or performance improvements of existing mechanisms to support the collection of telemetry and generation of traffic matrices at very high velocity and scale </t>
+  <t>Additional methods that allow for even traffic load distribution across the network, i.e. load balancing on a network scale, and enablement of those methods through control protocol extensions as needed.</t> 
+</list>
+</t>
+
+</section>
+<section title="Convergence Schemes">
+<t>
+One set of challenges of carbon-aware networking concerns the fact that many schemes result in much greater dynamicity and continuous change in the network as resources may be getting steered away from (when possible) and then leveraged again (when necessary) in rapid succession.  This imposes significant stress on convergence schemes that results in challenges to the scalability of solutions and their ability to perform in a fast-enough manner. Network-wide convergence imposes high cost and incurs significant delay and is hence not susceptible to such schemes. In order to mitigate this problem, mechanisms should be investigated that do not require convergence beyond the vicinity of the affected network device.  Especially in cases where central network controllers are involved that are responsible for aspects such as configuration of paths and the positioning of network functions and that aim for global optimization, the impact of churn needs to be minimized.  This means that, for example, (re-) discovery and update schemes need to be simplified and extensive recalculation e.g., of routes and paths based on the current energy state of the network needs to be avoided.   
+</t>
+<t>Challenges and opportunities for IETF-led advances in this space include:
+<list style="symbols">
+    <t>Protocols that facilitate rapid convergence (per <xref target="NetworkEnergySaving"/>).</t>
+    <t>Investigate methods that mitigate effects of churn, including methods that maintain memory or state as well as methods relying on prediction, inference, and interpolation.</t>
+</list>
+</t>
+</section>
+
+<!-- Alex, feel free to comment out this following section, we can talk more about it. -->
+
+
+<section title="The Role of Topology">
+    <t>
+        One of the most important network management constructs is that of the network topology. A network topology can usually be represented as a database or as a mathematical graph, with vertices or nodes, edges or links, representing networking nodes, links connecting their interfaces, and all their characteristics. Examples of these network topology representations include routing protocols link-state databases, and service function chaining graphs.
+    </t>
+    <t>
+        As we desire to add carbon and energy awareness into networks, the energy proportionality of topologies directly supports sustainability visibility and improvements via automation.
+    </t>
+    <t>
+    The following summarizes some challenges and opportunities that can provide the basis for IETF-led advances in this space:
+    <list style="symbols">
+        <t>Embedding carbon and energy awareness into the representation of topologies, wheather considering IGP LSDBs (link-state databases) and their advertisements, BGP-LS (BGP Link-State), or metadata for the rendering of service function paths in a service chain.</t>
+        <t>Use of those carbon-aware attributes to optimize topology as a whole under end-to-end energy and carbon considerations.
+        </t>
+    </list>
+    </t>
+</section>
+
+
+
+</section>
+
+<section title="Challenges and Opportunities - Architecture Level" anchor="sec:archi">
+<t>
+Another possibility to improve network energy efficiency is to organize networks in a way that they can best serve important applications so as to minimize energy consumption. Examples include retrieval of content or remote computation. This allows to minimize the amount of communication that needs to take place in the first place, although energy savings within the network may at least in part be offset by additional energy consumption elsewhere. The following are some examples that suggest that it may be worthwhile reconsidering the ways in which networks are architected to minimize their carbon footprint.  
+</t>
+<t>
+For example, Content Delivery Networks (CDNs) have reduced the energy expenditure of the Internet by downloading content near the users. The content is sent only a few times over the WAN, and then is served locally. This shifts the energy consumption from networking to storage. Further methods can reduce the energy usage even more <xref target="Bianco2016energy"/> <xref target="Mathew2011energy"/> <xref target="Islam2012evaluating"/>. Whether overall energy savings are net positive depends on the actual deployment, but from the network operator's perspective, at least it shifts the energy bill away from the network to the CDN operator.  
+</t>
+<t>
+While CDNs operate as an overlay, another architecture has been proposed to provide the CDN features directly in the network, namely Information Centric Networks <xref target="Ahlgren2012survey"/>, studied as well in the IRTF ICNRG. This however shifts the energy consumption back to the network operator and requires some power-hungry hardware, such as chips for larger name look-ups and memory for the in-network cache.  As a result, it is unclear if there is an actual energy gain from the dissemination and retrieval of content within in-network caches.   
+</t>
+<t>
+Fog computing and placing intelligence at the edge are other architectural directions for reducing the amount of energy that is spent on packet forwarding and in the network. There again, the trade-off is between performing computation in a an energy-optimized data center at very large scale, but requiring transmission of significant volumes of data across many nodes and long distances, versus performing computational tasks at the edge where the energy may not be used as efficiently (less multiplexing of resources, and smaller sites are inherently less efficient due to their smaller scale) but the amount of long-distance network traffic is significantly reduced.
+Softwarization, containers, microservices are direct enablers for such architectures, and the deployment of programmable network infrastructure (as for instance Infrastructure Processing Units - IPUs or SmartNICs that offload some computations from the CPU onto the NIC) will help its realization.  
+However, the power consumption characteristics of CPUs are different from those of NPUs, another aspect to be considered in conjunction with virtualization.
+</t> 
+<t>
+Other possibilities concern taking economic aspects into consideration impact, such as providing incentives to users of networking services in order to minimize energy consumption and emission impact.  An example for this is given in <xref target="Wolf2014choicenet"/>, which could be expanded to include energy incentives. 
+</t>
+<t>
+Other approaches consider performing a late binding of data and functions to be performed on the data <xref target="Krol2017NFaaS"/>. The COIN Research Group in IRTF focuses on similar issues. Jointly optimizing for the total energy cost, taking into account networking and computing (and the different energy cost of computing in an hyperscale DC vs an edge node) is still an area of open research.
+</t>
+<t>
+In summary, rethinking of the overall network (and networked application) architecture can be an opportunity to significantly reduce the energy cost at the network layer, for example by performing tasks that involve massive communications closer to the user.  To what extend these shifts result in a net reduction of carbon footprint is an important question that requires further analysis on a case-by-case basis. 
+</t>
+<t>
+The following summarizes some challenges and opportunities that can provide the basis for IETF-led advances in this space:
+<list style="symbols">
+    <t>Investigate organization of networking architecture for important classes of applications (examples: content delivery, right-placing of computational intelligence, industrial operations and control, massively distributed machine learning and AI) to optimize green foot print and holistic approaches to trade off carbon footprint between forwarding, storage, and computation.</t>
+    <t>Models to assess and compare alternatives in providing networked services, e.g., assess carbon impact relative to alternatives where as to where to perform compute, what information to cache, and what communication exchanges to conduct.</t>
+</list>
+</t>
+</section>
+
+<section title="Conclusions">
+<t> How to make networks "greener" and reduce their carbon footprint is an important problem for the networking industry to address, both for societal and for economic reasons. This document has highlighted a number of the technical challenges and opportunities in that regard.
+</t>
+<t>
+Of those, perhaps the key challenge to address right away concerns the ability to expose at a fine granularity the energy impact of any networking actions. Providing visibility into this will enable many approaches to come towards a solution. It will be key to implementing optimization via control loops that allow to assess the energy impact of decision taken.  It will also help to answer questions such as: is caching - with the associated storage energy - better than retransmitting from a different server - with the associated networking cost? Is compression more energy-efficient once factoring the computation cost of compression vs transmitting uncompressed data? Which compression scheme is more energy efficient? Is energy saving of computing at an efficient hyperscale DC compensated by the networking cost to reach that DC? Is the overhead of gathering and transmitting fine-grained energy telemetry data offset by the total energy gain by ways of better decisions that this data enables? Is transmitting data to a Low Earth Orbit (LEO) satellite constellation compensated by the fact that once in the constellation, the networking is fueled on solar energy? Is the energy cost of sending rockets to place routers in Low Earth Orbit amortized over time?
+</t>
+<t>
+Determining where the sweet spots are and optimizing networks along those lines will be a key towards making networks "greener". We expect to see significant advances across these areas and believe that IETF has an important role to play in facilitating this.   
+</t>
+</section>
+
+
+<section title="IANA Considerations">
+<t>This document does not have any IANA requests. </t>
+</section>
+	
+
+<section title="Security Considerations">
+
+<t>Security considerations may appear to be orthogonal to green networking considerations.  However, there are a number of important caveats.  
+</t>
+<t>Security vulnerabilities of networks may manifest themselves in compromised energy efficiency.  For example, attackers could aim at increasing energy consumption in order to drive up attack victims' energy bill.  Specific vulnerabilities will depend on the particular mechanisms.  For example, in the case of monitoring energy consumption data, tampering with such data might result in compromised energy optimization control loops. Hence any mechanisms to instrument and monitor the network for such data need to be properly secured to ensure authenticity.
+</t>
+<t>In some cases, there are inherent tradeoffs between security and maximal energy efficiency that might otherwise be achieved.  An example is encryption, which requires additional computation for encryption and decryption activities and security handshakes, in addition to the need to send more traffic than necessitated by the entropy of the actual data stream.  Likewise, mechanisms that allow to turn resources on or off could become a target for attackers. 
+</t>
+<t>Energy consumption can be used to create covert channels, which is a security risk for information leakage. For instance, the temperature of an element can be used to create a Thermal Covert Channel <xref target="TCC"/>, or the reading/sharing of the measured energy consumption can be abused to create a covert channel (see for instance <xref target="DRAM"/> or <xref target="NewClass"/>). Power information may be used to create side-channel attacks. For instance, <xref target="SideChannel"/> provides a review of 20 years of study on this topic. Any new parameters to consider in protocol designs or in measurements is susceptible to create such covert or side channel and this should be taken into account while designing energy efficient protocols. 
+</t>
+</section>
+
+<section title="Contributors">
+    <t>
+    <list>
+    <t>Michael Welzl, University of Oslo, michawe@ifi.uio.no</t>
+    </list>
+    </t>
+</section>
+    
+<section title="Acknowledgments">
+<t>
+We thank Dave Oran for providing the information regarding covert channels using energy measurements. Additional acknowledgments will be added at a later stage. 
+</t>
+</section>
+</middle>
+
+<back>
+
+	<references title="Informative References">
+        &RFC.2481;
+        &RFC.3031;
+        &RFC.3095;
+        &RFC.7950;
+        &RFC.8402;
+        &RFC.9330;
+
+  <reference anchor="I.D.draft-cx-green-metrics">
+  <front>
+    <title>Green Networking Metrics</title>
+    <author fullname="Alexander Clemm"></author>
+	<author fullname="Lijun Dong"></author>
+	<author fullname="Greg Mirsky"></author>
+    <author fullname="Laurent Ciavaglia"></author>
+	<author fullname="Jeff Tantsura"></author>
+	<author fullname="Marie-Paule Odini"></author>
+    <author fullname="Eve Schooler"></author>
+    <author fullname="Ali Rezaki"></author>
+	<date month="June" year="2023"/>
+    </front>
+  </reference>
+  
+
+      <reference anchor="Telefonica2021">
+        <front>
+          <title>Telefonica Consolidated Annual Report 2021.</title>
+          <author fullname="Telefonica"> </author>
+          <date year="2021"/>
+        </front>
+      </reference>
+    
+    <reference anchor="GreenNet22">
+    <front>
+    <title>Challenges and Opportunities in Green Networking</title>
+    <author fullname="Alexander Clemm"> </author>
+	<author fullname="Cedric Westphal"></author>
+    <date month="June" year="2022" />
+    </front>
+	<seriesInfo
+		name="1st International Workshop on Network Energy Efficiency in the Softwarization Era" value="IEEE NetSoft 2022"/>
+
+    </reference>
+    
+    <reference anchor="Bolla2011energy">
+    <front>
+    <title>Energy Efficiency in the Future Internet: A Survey of Existing Approaches and Trends in Energy-Aware Fixed Network Infrastructures</title>
+    <author fullname="Raffaele Bolla"> </author>
+	<author fullname="Roberto Bruschi"> </author>
+	<author fullname="Franco Davoli"> </author>
+	<author fullname="Flavio Cucchietti"> </author>
+	<date year="2011" />
+    </front>
+    <seriesInfo name="IEEE Communications Surveys and Tutorials" value="Vol.13 No.2, pp.223-244"/>
+
+    </reference>
+  
+	<reference anchor="Chabarek08">
+    <front>
+    <title>Power awareness in network design and routing</title>
+    <author fullname="J. Chabarek"></author>
+	<author fullname="J. Sommers"></author>
+	<author fullname="P. Barford"></author>
+	<author fullname="D. Tsiang"></author>
+	<author fullname="S. Wright"></author>
+    <date year="2008"/>
+    </front>
+	<seriesInfo name="IEEE Infocom" value="pp.457-465"/>
+
+  </reference>
+  
+    <reference anchor="Cervero19">
+    <front>
+    <title>Green Wired Networks</title>
+    <author fullname="Alfonso Gazo Cervero"></author>
+	<author fullname="Michele Chincoli"></author>
+	<author fullname="Lars Dittmann"></author>
+	<author fullname="Andreas Fischer"></author>
+	<author fullname="Alberto Garcia"></author>
+    <date year="2019"/>
+    </front>
+	<seriesInfo name="Wiley Journal on Large-Scale Distributed Systems and Energy Efficiency" value="pp.41-80"/>
+
+  </reference>
+ 
+  
+  <reference anchor="Alizadeh2010DCTCP">
+     <front>
+    <title>Data Center TCP (DCTCP) </title>
+    <author fullname="Mohammad Alizadeh"></author>
+	<author fullname="Albert Greenberg"></author>
+	<author fullname="David Maltz"></author>
+	<author fullname="Jitendra Padhye"></author>
+	<author fullname="Parveen Patel"></author>
+	<author fullname="Balaji Prabhakar"></author>
+	<author fullname="Sudipta Sengupta"></author>
+	<author fullname="Murari Sridharan"></author>
+    <date year="2010"/>
+    </front>
+	<seriesInfo name="ACM SIGCOMM" value="pp.63-74"/>
+
+  </reference>
+   
+    <reference anchor="QUAL">
+     <front>
+    <title> A Framework for Qualitative Communications using Big Packet Protocol</title>
+    <author fullname="Richard Li"></author>
+	<author fullname="Kiran Makhijani"></author>
+	<author fullname="Hamed Yousefi"></author>
+	<author fullname="Cedric Westphal"></author>
+	<author fullname="Lijun Xong"></author>
+	<author fullname="Tim Wauters"></author>
+	<author fullname="Filip De Turck"></author>
+    <date year="2019"/>
+    </front>
+	<seriesInfo name="Proceedings ACM Sigcomm Workshop On Networking For Emerging Applications And Technologies" value="pp.22-28"/>
+
+  </reference>  
+  
+  <reference anchor="Westphal2021qualitative">
+     <front>
+    <title>Qualitative Communications for Augmented Reality and Virtual Reality </title>
+    <author fullname="Cedric Westphal"></author>
+	<author fullname="Dongbiao He"></author>
+	<author fullname="Kiran Makhijani"></author>
+	<author fullname="Richard Li"></author>
+    <date year="2021"/>
+    </front>
+	<seriesInfo name="22nd IEEE International Conference on High Performance Switching and Routing (HPSR)" value="pp.1-6"/>
+  </reference>
+  
+    <reference anchor="Herzen2011PIE">
+    <front>
+    <title>Scalable routing easy as PIE: A practical isometric embedding protocol</title>
+    <author fullname="Julien Herzen"></author>
+	<author fullname="Cedric Westphal"></author>
+	<author fullname="Patrick Thiran"></author>
+    <date year="2011"/>
+    </front>
+	<seriesInfo name="19th IEEE International Conference on Network Protocols (ICNP)" value="pp.49-58"/>
+  </reference>
+  
+    <reference anchor="Ren2018jordan">
+     <front>
+    <title>JORDAN: A Novel Traffic Engineering Algorithm for Dynamic Adaptive Streaming over HTTP</title>
+    <author fullname="Jing Ren"></author>
+	<author fullname="Kejie Ren"></author>
+	<author fullname="Cedric Westphal"></author>
+	<author fullname="Jin Wang"></author>
+	<author fullname="Jinfan Wang"></author>
+	<author fullname="Tongyu Song"></author>
+	<author fullname="Sucheng Liu"></author>
+	<author fullname="Jianping Wang"></author>	
+    <date year="2018"/>
+    </front>
+	<seriesInfo name="IEEE International Conference on Computing, Networking and Communications (ICNC)" value="pp.581-587"/>
+  </reference>
+  
+  <reference anchor="Bianco2016energy">
+    <front>
+    <title>Energy consumption for data distribution in content delivery networks</title>
+    <author fullname="Andreas Bianco"></author>
+	<author fullname="Reza Mashayekhi"></author>
+	<author fullname="Michele Meo"></author>
+    <date year="2016"/>
+    </front>	
+    <seriesInfo name="IEEE International Conference on Communications (ICC)" value="pp.1-6"/>
+
+  </reference>
+ 
+  <reference anchor="Mathew2011energy">
+       <front>
+    <title>Energy-Aware Load Balancing in Content Delivery Networks</title>
+    <author fullname="Vimal Mathew"></author>
+	<author fullname="Ramesh Sitaraman"></author>
+	<author fullname="Prashant Shenoy"></author>
+    <date year="2011"/>
+    </front>
+	<seriesInfo name="CoRR http://arxiv.org/abs/1109.5641" value=""/>
+  </reference>
+  
+  <reference anchor="Islam2012evaluating">
+     <front>
+    <title>Evaluating Energy Consumption in CDN Servers</title>
+    <author fullname="Saif ul Islam"></author>
+	<author fullname="jean-Marc Pierson"></author>
+    <date year="2012"/>
+    </front>
+	<seriesInfo name="Proceedings of the Second International Conference on ICT as Key Technology against Global Warming" value="pp.64-78"/>
+  </reference>
+  
+  <reference anchor="Ahlgren2012survey">
+   <front>
+    <title>A survey of information-centric networking</title>
+    <author fullname="Bengt Ahlgren"></author>
+	<author fullname="Christian Dannewitz"></author>
+	<author fullname="Claudio Imbrenda"></author>
+	<author fullname="Dirk Kutscher"></author>
+	<author fullname="Borje Ohlman"></author>
+    <date year="2012"/>
+    </front>
+	<seriesInfo name="IEEE Communications Magazine" value="Vol.50 No.7"/>
+  </reference>  
+
+  <reference anchor="Wolf2014choicenet">
+   <front>
+    <title>ChoiceNet: Toward an Economy Plane for the Internet</title>
+    <author fullname="Wolf Tilman"></author>
+	<author fullname="James Griffioen"></author>
+	<author fullname="Lenneth Calvert"></author>
+	<author fullname="Rudra Dutta"></author>
+	<author fullname="George Rouskas"></author>
+	<author fullname="Ilya Baldin"></author>
+	<author fullname="Anna Nagurney"></author>
+    <date year="2014" month="July"/>
+    </front>
+	<seriesInfo name="SIGCOMM Computer Communciations Review" value="Vol.44 No.3"/>
+  </reference>
+  
+  <reference anchor="Krol2017NFaaS">
+   <front>
+    <title>NFaaS: Named Function as a Service</title>
+    <author fullname="Michal Krol"></author>
+	<author fullname="Ioannis Psaras"></author>
+    <date year="2017"/>
+    </front>
+	<seriesInfo name="ACM SIGCOMM ICN Conference" value=""/>
+  </reference>
+  
+    <reference anchor="TCC">
+   <front>
+    <title>Selective Noise Based Power Efficient and Effective Countermeasure Against Thermal Covert Channel Attacks in Multi-Core Systems</title>
+    <author fullname="Parisa Rahimi"></author>
+	<author fullname="Amit Kumar Singh"></author>
+    <author fullname="Xioahang Wang"></author>
+    <date year="2022"/>
+    </front>
+	<seriesInfo name="Journal on Low Power Electronics and Applications" value=""/>
+  </reference>
+  
+    <reference anchor="DRAM">
+   <front>
+    <title>Robust Covert Channels Based on DRAM Power Consumption</title>
+    <author fullname="Thales Bandiera Paiva"></author>
+	<author fullname="Javier Navaridas"></author>
+    <author fullname="Routo Terada"></author>
+	<date year="2019"/>
+    </front>
+	<seriesInfo name="In book: Information Security (pp.319-338)" value=""/>
+  </reference>
+  
+   <reference anchor="NewClass">
+   <front>
+    <title>A New Class of Covert Channels Exploiting Power Management Vulnerabilities</title>
+    <author fullname="S. Karen Khatamifard"></author>
+	<author fullname="Longfei Wang"></author>
+    <author fullname="Selcuk Kose"></author>
+	<author fullname="Ulya R. Karpuzcu"></author>
+	<date year="2018"/>
+    </front>
+	<seriesInfo name="IEEE Computer Architecture Letters" value=""/>
+  </reference>
+  
+   <reference anchor="SideChannel">
+   <front>
+    <title>Power Side-Channel Attack Analysis: A Review of 20 Years of Study for the Layman</title>
+    <author fullname="Mark Randolph"></author>
+	<author fullname="William Diehl"></author>
+	<date year="2020"/>
+    </front>
+	<seriesInfo name="Cryptography 2020, 4, 15" value=""/>
+  </reference>
+  
+   <reference anchor="Framework">
+   <front>
+    <title> A framework to estimate emissions from virtual conferences</title>
+    <author fullname="Grant Faber"></author>
+	<date year="2021"/>
+    </front>
+	<seriesInfo name="International Journal of Environmental Studies, 78:4, 608-623" value=""/>
+  </reference>
+  
+   <reference anchor="Emergy">
+   <front>
+    <title>The Energy and Emergy of the Internet</title>
+    <author fullname="Barath Raghavan"></author>
+	<author fullname="Justin Ma"></author>
+	<date year="2011"/>
+    </front>
+	<seriesInfo name="ACM HotNets" value=""/>
+  </reference>
+  
+    <reference anchor="Junkyard">
+   <front>
+    <title>Architecture of a Junkyard Datacenter</title>
+    <author fullname="Jennifer Switzer"></author>
+	<author fullname="Ryan Kastner"></author>
+	<author fullname="Pat Pannuto"></author>
+	<date year="2021"/>
+    </front>
+	<seriesInfo name="arXiv:2110.06870v1, October 2021" value=""/>
+  </reference>
+  
+  <reference anchor="TradeOff">
+   <front>
+    <title>Not a Trade-Off: On the Wi-Fi Energy Efficiency of Effective Internet Congestion Control</title>
+    <author fullname="Michael Welzl"></author>
+	<date year="2022"/>
+    </front>
+	<seriesInfo name="IEEE/IFIP WONS" value=""/>
+  </reference>
+  
+        <reference anchor="Hossain2019" target="https://ieeexplore.ieee.org/document/6779082">
+        <front>
+          <title>Energy, Carbon and Renewable Energy: Candidate Metrics for Green-Aware Routing?</title>
+          <author fullname="M.M. Hossain"> </author>
+          <author fullname="J.-P. Georges"> </author>
+          <author fullname="E. Rondeau"> </author>
+          <author fullname="T. Divoux"> </author>
+          <date month="June" year="2019"/>
+        </front>
+        <seriesInfo name="DOI" value="10.3390/s19132901"/>
+        <seriesInfo name="Sensors" value="Vol. 19 No. 3"/>
+      </reference>
+
+  <reference anchor="IETF-Net0" target="https://www.ietf.org/blog/towards-a-net-zero-ietf/">
+   <front>
+    <title>Towards a net zero IETF</title>
+    <author fullname="Jay Daley"></author>
+    <date day="6" month="5" year="2022"/>
+    </front>
+    <seriesInfo name="IETF News" value=""/>
+  </reference>
+
+
+</references>
+
+</back>
+	
+</rfc>
