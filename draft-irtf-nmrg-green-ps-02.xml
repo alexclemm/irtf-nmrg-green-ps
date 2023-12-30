@@ -83,7 +83,7 @@
 </author>
 
 
-<date day="31" month="12" year="2023" />
+<date day="30" month="12" year="2023" />
 
 <abstract>
 	<t>
@@ -528,7 +528,12 @@ One set of challenges of carbon-aware networking concerns the fact that many sch
         As we desire to add carbon and energy awareness into networks, the energy proportionality of topologies directly supports sustainability visibility and improvements via automation.
     </t>
     <t>
-        Specifically, for IETF-led advances, there are a number of areas to research and engineer. First, embedding carbon and energy awareness into the representation of topologies, wheather considering IGP LSDBs (link-state databases) and their advertisements, BGP-LS (BGP Link-State), or metadata for the rendering of service function paths in a service chain. Second the use of those carbon-aware attributes into looking at the topology as a whole for end-to-end energy and carbon proportionality.
+    The following summarizes some challenges and opportunities that can provide the basis for IETF-led advances in this space:
+    <list style="symbols">
+        <t>Embedding carbon and energy awareness into the representation of topologies, wheather considering IGP LSDBs (link-state databases) and their advertisements, BGP-LS (BGP Link-State), or metadata for the rendering of service function paths in a service chain.</t>
+        <t>Use of those carbon-aware attributes to optimize topology as a whole under end-to-end energy and carbon considerations.
+        </t>
+    </list>
     </t>
 </section>
 
