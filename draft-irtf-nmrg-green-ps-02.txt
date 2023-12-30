@@ -79,7 +79,7 @@ Table of Contents
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
      1.1.  Motivation  . . . . . . . . . . . . . . . . . . . . . . .   3
      1.2.  Approaching the Problem . . . . . . . . . . . . . . . . .   5
-     1.3.  Structuring the Problem Space . . . . . . . . . . . . . .   5
+     1.3.  Structuring the Problem Space . . . . . . . . . . . . . .   6
    2.  Definitions and Acronyms  . . . . . . . . . . . . . . . . . .   8
    3.  Network Energy Consumption Characteristics and
            Implications  . . . . . . . . . . . . . . . . . . . . . .   9
@@ -87,25 +87,25 @@ Table of Contents
      4.1.  Hardware and Manufacturing  . . . . . . . . . . . . . . .  12
      4.2.  Visibility and Instrumentation  . . . . . . . . . . . . .  13
    5.  Challenges and Opportunities - Protocol Level . . . . . . . .  15
-     5.1.  Protocol Enablers for Carbon Optimization Mechanisms  . .  16
-     5.2.  Protocol Optimization . . . . . . . . . . . . . . . . . .  17
-     5.3.  Data Volume Reduction . . . . . . . . . . . . . . . . . .  18
+     5.1.  Protocol Enablers for Carbon Optimization Mechanisms  . .  15
+     5.2.  Protocol Optimization . . . . . . . . . . . . . . . . . .  16
+     5.3.  Data Volume Reduction . . . . . . . . . . . . . . . . . .  17
      5.4.  Network Addressing  . . . . . . . . . . . . . . . . . . .  19
    6.  Challenges and Opportunities - Network Level  . . . . . . . .  20
      6.1.  Network Optimization and Energy/Carbon/Pollution-Aware
            Networking  . . . . . . . . . . . . . . . . . . . . . . .  20
      6.2.  Assessing Carbon Footprint and Network-Level
-           Instrumentation . . . . . . . . . . . . . . . . . . . . .  22
-     6.3.  Dimensioning and Peak Shaving . . . . . . . . . . . . . .  23
-     6.4.  Convergence Schemes . . . . . . . . . . . . . . . . . . .  24
-   7.  Challenges and Opportunities - Architecture Level . . . . . .  24
-   8.  Conclusions . . . . . . . . . . . . . . . . . . . . . . . . .  26
-   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  27
-   10. Security Considerations . . . . . . . . . . . . . . . . . . .  27
+           Instrumentation . . . . . . . . . . . . . . . . . . . . .  21
+     6.3.  Dimensioning and Peak Shaving . . . . . . . . . . . . . .  22
+     6.4.  Convergence Schemes . . . . . . . . . . . . . . . . . . .  23
+     6.5.  The Role of Topology  . . . . . . . . . . . . . . . . . .  24
+   7.  Challenges and Opportunities - Architecture Level . . . . . .  25
+   8.  Conclusions . . . . . . . . . . . . . . . . . . . . . . . . .  27
+   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  28
+   10. Security Considerations . . . . . . . . . . . . . . . . . . .  28
    11. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  28
-   12. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  28
-   13. Informative References  . . . . . . . . . . . . . . . . . . .  28
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  32
+   12. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  29
+   13. Informative References  . . . . . . . . . . . . . . . . . . .  29
 
 
 
@@ -113,6 +113,8 @@ Clemm, et al.              Expires 3 July 2024                  [Page 2]
 
 Internet-Draft       Management for Green Networking       December 2023
 
+
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  32
 
 1.  Introduction
 
@@ -155,13 +157,11 @@ Internet-Draft       Management for Green Networking       December 2023
    natural habitats and biodiversity, and the avoidance of any form of
    pollution.
 
-   In the context of this document, we refer to networking technology
-   that helps to improve its own networking sustainability as "green".
-   Green, in that sense, includes technology that helps to lower
-   networking's greenhouse gas emissions including carbon footprint,
-   which turn includes technology that helps to increase efficiency and
-   realize energy savings as well as facilitating managing networks
-   towards stronger use of renewables.
+
+
+
+
+
 
 
 
@@ -169,6 +169,14 @@ Clemm, et al.              Expires 3 July 2024                  [Page 3]
 
 Internet-Draft       Management for Green Networking       December 2023
 
+
+   In the context of this document, we refer to networking technology
+   that helps to improve its own networking sustainability as "green".
+   Green, in that sense, includes technology that helps to lower
+   networking's greenhouse gas emissions including carbon footprint,
+   which turn includes technology that helps to increase efficiency and
+   realize energy savings as well as facilitating managing networks
+   towards stronger use of renewables.
 
    Arguably, networks can already be considered a "green" technology in
    that networks enable many applications that allow users and whole
@@ -210,14 +218,6 @@ Internet-Draft       Management for Green Networking       December 2023
    [Telefonica2021].  This rate has been dramatically decreasing (a
    seven-fold factor over six years) although gains in efficiency are
    being offset by simultaneous growth in data volume.  In the same
-   report, it is stated as an important corporate goal to continue on
-   that trajectory and aggressively reduce overall carbon emissions
-   further.
-
-
-
-
-
 
 
 
@@ -225,6 +225,10 @@ Clemm, et al.              Expires 3 July 2024                  [Page 4]
 
 Internet-Draft       Management for Green Networking       December 2023
 
+
+   report, it is stated as an important corporate goal to continue on
+   that trajectory and aggressively reduce overall carbon emissions
+   further.
 
 1.2.  Approaching the Problem
 
@@ -270,10 +274,6 @@ Internet-Draft       Management for Green Networking       December 2023
    the network and performed on increasingly short time scales,
    transcending management and control planes.
 
-1.3.  Structuring the Problem Space
-
-   From a technical perspective, multiple vectors along which networks
-   can be made "greener" should be considered:
 
 
 
@@ -281,6 +281,11 @@ Clemm, et al.              Expires 3 July 2024                  [Page 5]
 
 Internet-Draft       Management for Green Networking       December 2023
 
+
+1.3.  Structuring the Problem Space
+
+   From a technical perspective, multiple vectors along which networks
+   can be made "greener" should be considered:
 
    *  Equipment level:
 
@@ -326,11 +331,6 @@ Internet-Draft       Management for Green Networking       December 2023
       We are not taking into consideration end-user devices and
       endpoints such as mobile phones or computing equipment.
 
-   *  Protocol level:
-
-      Energy-efficiency and greenness are aspects that are rarely
-      considered when designing network protocols.  This suggests that
-
 
 
 Clemm, et al.              Expires 3 July 2024                  [Page 6]
@@ -338,6 +338,10 @@ Clemm, et al.              Expires 3 July 2024                  [Page 6]
 Internet-Draft       Management for Green Networking       December 2023
 
 
+   *  Protocol level:
+
+      Energy-efficiency and greenness are aspects that are rarely
+      considered when designing network protocols.  This suggests that
       there may be plenty of untapped potential.  Some aspects involve
       designing protocols in ways that reduce the need for redundant or
       wasteful transmission of data to allow not only for better network
@@ -381,11 +385,7 @@ Internet-Draft       Management for Green Networking       December 2023
       networks should strive to minimize and consider as part of routing
       and of network path optimization.
 
-   *  Architecture level
 
-      The current network architecture supports a wide range of
-      applications, but does not take into account energy efficiency as
-      one of its design parameters.  One can argue that the most energy
 
 
 
@@ -394,6 +394,11 @@ Clemm, et al.              Expires 3 July 2024                  [Page 7]
 Internet-Draft       Management for Green Networking       December 2023
 
 
+   *  Architecture level
+
+      The current network architecture supports a wide range of
+      applications, but does not take into account energy efficiency as
+      one of its design parameters.  One can argue that the most energy
       efficient shift of the last two decades has been the deployment of
       Content Delivery Network overlays: while these were set up to
       reduce latency and minimize bandwidth consumption, from a network
@@ -437,11 +442,6 @@ Internet-Draft       Management for Green Networking       December 2023
 
    HVAC:  Heating, Ventilation, Air Conditioning
 
-   ICN:   Information Centric Network
-
-   IGP:   Interior Gateway Protocol
-
-   IoT:   Internet of Things
 
 
 
@@ -449,6 +449,12 @@ Clemm, et al.              Expires 3 July 2024                  [Page 8]
 
 Internet-Draft       Management for Green Networking       December 2023
 
+
+   ICN:   Information Centric Network
+
+   IGP:   Interior Gateway Protocol
+
+   IoT:   Internet of Things
 
    IPU:   Infrastructure Processing Units
 
@@ -492,12 +498,6 @@ Internet-Draft       Management for Green Networking       December 2023
    Network energy consumption by itself does not tell the whole story,
    as it does not take the sustainability of energy sources and energy
    mix into account.  Likewise, there are other factors such as hidden
-   carbon cost reflecting the carbon footprint expended in manufacturing
-   of networking hardware.  Nonetheless, network energy consumption is
-   an excellent predictor for carbon footprint and its reduction key to
-   sustainable solutions.  Exploring possibilities to improve energy
-   efficiency is hence a key factor for greener, more sustainable, less
-   carbon-intensive networks.
 
 
 
@@ -505,6 +505,13 @@ Clemm, et al.              Expires 3 July 2024                  [Page 9]
 
 Internet-Draft       Management for Green Networking       December 2023
 
+
+   carbon cost reflecting the carbon footprint expended in manufacturing
+   of networking hardware.  Nonetheless, network energy consumption is
+   an excellent predictor for carbon footprint and its reduction key to
+   sustainable solutions.  Exploring possibilities to improve energy
+   efficiency is hence a key factor for greener, more sustainable, less
+   carbon-intensive networks.
 
    For this, it is important to understand some of the characteristics
    of power consumption by networks and which aspects contribute the
@@ -547,13 +554,6 @@ Internet-Draft       Management for Green Networking       December 2023
    the duration of the transmission that dominates the energy
    consumption, not the actual data rate.
 
-   The implications on green networking from an energy-savings
-   standpoint are significant.  Of utmost importance are schemes that
-   allow for "peak shaving": networks are typically dimensioned for
-   periods of peak demand and usage, yet any excess capacity during
-   periods of non-peak usage does not result in corresponding energy
-   savings.  Peak shaving techniques that allow to reduce peak traffic
-   spikes and thus waste during non-peak periods may result in outsize
 
 
 
@@ -562,6 +562,13 @@ Clemm, et al.              Expires 3 July 2024                 [Page 10]
 Internet-Draft       Management for Green Networking       December 2023
 
 
+   The implications on green networking from an energy-savings
+   standpoint are significant.  Of utmost importance are schemes that
+   allow for "peak shaving": networks are typically dimensioned for
+   periods of peak demand and usage, yet any excess capacity during
+   periods of non-peak usage does not result in corresponding energy
+   savings.  Peak shaving techniques that allow to reduce peak traffic
+   spikes and thus waste during non-peak periods may result in outsize
    sustainability gains.  Peak shaving could be accomplished by
    techniques such as spreading spikes out over geographies (e.g.
    routing traffic across more costly but less utilized routes) or over
@@ -603,13 +610,6 @@ Internet-Draft       Management for Green Networking       December 2023
    state across the network or recalculation of routes and other
    optimization problems, and (at the network equipment level) support
    rapid power cycle and initialization schemes.  There may be some
-   lessons that can be applied here from IoT, which has long had to
-   contend with power-constrained end devices that need to spend much of
-   their time in power saving states to conserve battery.
-
-
-
-
 
 
 
@@ -617,6 +617,10 @@ Clemm, et al.              Expires 3 July 2024                 [Page 11]
 
 Internet-Draft       Management for Green Networking       December 2023
 
+
+   lessons that can be applied here from IoT, which has long had to
+   contend with power-constrained end devices that need to spend much of
+   their time in power saving states to conserve battery.
 
 4.  Challenges and Opportunities - Equipment Level
 
@@ -663,10 +667,6 @@ Internet-Draft       Management for Green Networking       December 2023
    support of new networking features through software updates without
    requiring hardware replacements.
 
-   An attempt to compute not only the energy of running a network, but
-   also the energy embedded into manufacturing the equipment is
-   described in [Emergy] . This is denoted by "emergy", a portmanteau
-
 
 
 Clemm, et al.              Expires 3 July 2024                 [Page 12]
@@ -674,6 +674,9 @@ Clemm, et al.              Expires 3 July 2024                 [Page 12]
 Internet-Draft       Management for Green Networking       December 2023
 
 
+   An attempt to compute not only the energy of running a network, but
+   also the energy embedded into manufacturing the equipment is
+   described in [Emergy] . This is denoted by "emergy", a portmanteau
    for embedded energy.  Likewise, an approach to recycling equipment
    and a proof of concept using old cell phones recycled into a
    "junkyard" data center are described in [Junkyard].
@@ -708,28 +711,6 @@ Internet-Draft       Management for Green Networking       December 2023
    or a description of the type of the device as using CPU vs GPU vs TPU
    processors with different power profiles).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 13]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
    One prerequisite to such schemes is to have proper instrumentation in
    place that allows to monitor current power consumption at the level
    of networking devices as a whole, line cards, and individual ports.
@@ -741,6 +722,14 @@ Internet-Draft       Management for Green Networking       December 2023
    for incremental energy consumption that is expected for incremental
    traffic (to aid control schemes that aim to "shave" power off current
    services or to minimize the incremental use of power for additional
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 13]
+
+Internet-Draft       Management for Green Networking       December 2023
+
+
    traffic).  This is an area where the current state of the art is
    sorely lacking and standardization lags behind.  For example, as of
    today, standardized YANG data models [RFC7950] for network energy
@@ -779,13 +768,6 @@ Internet-Draft       Management for Green Networking       December 2023
       the EnergyStar program from the US's Environmental Protection
       Agency.
 
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 14]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
    *  Equipment instrumentation advances for improved energy-awareness;
       definition and standardization of granular management information.
 
@@ -793,6 +775,16 @@ Internet-Draft       Management for Green Networking       December 2023
       effectiveness in solutions that optimize carbon footprint also in
       virtualized environments (including SDN, network slicing, network
       function virtualization, etc.).
+
+
+
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 14]
+
+Internet-Draft       Management for Green Networking       December 2023
+
 
    *  Certification and compliance assessment methods that ensure that
       green instrumentation cannot be manipulated to give false and
@@ -827,21 +819,6 @@ Internet-Draft       Management for Green Networking       December 2023
    energy-efficiency in battery-operated mobile devices have been
    embraced in data centers for a similar trajectory.
 
-
-
-
-
-
-
-
-
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 15]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
 5.1.  Protocol Enablers for Carbon Optimization Mechanisms
 
    As will be discussed in Section 6, energy-aware and pollution-aware
@@ -857,6 +834,14 @@ Internet-Draft       Management for Green Networking       December 2023
    Also, protocols are required to quickly converge onto an energy-
    efficient path once a new topology is created by turning links on/
    off.  Current routing protocols may provide for fast recovery in the
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 15]
+
+Internet-Draft       Management for Green Networking       December 2023
+
+
    case of failure.  However, failures are hopefully relatively rare
    events, while we expect an energy efficient network to aggressively
    try to turn off links.
@@ -889,15 +874,6 @@ Internet-Draft       Management for Green Networking       December 2023
       sustainability-related parameters in ways that would enable
       "greener" networking solutions, and exploring those solutions.
 
-
-
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 16]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
 5.2.  Protocol Optimization
 
    The second category involves designing protocols in such a way that
@@ -914,6 +890,14 @@ Internet-Draft       Management for Green Networking       December 2023
    Another example is to set up the proper rate of transmission to
    minimize the flow completion time (FCT) so as to enable opportunities
    to turn off links.  In a wireless context, [TradeOff] studies how
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 16]
+
+Internet-Draft       Management for Green Networking       December 2023
+
+
    setting the proper initial value for the congestion window can reduce
    the FCT and therefore allow the equipment to go faster into a low-
    energy mode.  By sending the data faster, the energy cost can be
@@ -945,15 +929,6 @@ Internet-Draft       Management for Green Networking       December 2023
 
    *  Assessments of the carbon impact of such strategies.
 
-
-
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 17]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
 5.3.  Data Volume Reduction
 
    The first category involves designing protocols in such a way that
@@ -971,6 +946,14 @@ Internet-Draft       Management for Green Networking       December 2023
    resolution).  However, it is not clear that the extra work to achieve
    higher compression ratios for the payloads results in a net energy
    gain: what is saved over the network may be offset by the
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 17]
+
+Internet-Draft       Management for Green Networking       December 2023
+
+
    compression/decompression effort.  Further research on this aspect is
    necessary.
 
@@ -1002,14 +985,6 @@ Internet-Draft       Management for Green Networking       December 2023
    limited), or whether it sends packets with very small payload size
    (making the header tax more pronounced and savings more significant).
 
-
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 18]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
    An alternative to reducing the amount of protocol data is to design
    routing protocols that are more efficient to process at each node.
    For instance, path based forwarding/labels such as MPLS [RFC3031]
@@ -1022,6 +997,18 @@ Internet-Draft       Management for Green Networking       December 2023
    computation at a router.  It is unclear if Longest Prefix Match (LPM)
    is efficient from an energy point of view or if constitutes a
    significant energy burden for the operation of a router.
+
+
+
+
+
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 18]
+
+Internet-Draft       Management for Green Networking       December 2023
+
 
    Beyond the volume of data itself, another consideration is the number
    of messages and chattiness of the protocol.  Some protocols rely on
@@ -1058,14 +1045,6 @@ Internet-Draft       Management for Green Networking       December 2023
    improvement.  At the protocol level, rethinking how addresses are
    structured can allow for flexible addressing schemes that can be
    exploited in network deployments that are less energy-intensive by
-
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 19]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
    design.  This can be complemented by supporting clever address
    allocation schemes that minimize the number of required forwarding
    entries as part of deployments.
@@ -1079,6 +1058,13 @@ Internet-Draft       Management for Green Networking       December 2023
 
    The following summarizes some challenges and opportunities that can
    provide the basis for IETF-led advances in this space:
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 19]
+
+Internet-Draft       Management for Green Networking       December 2023
+
 
    *  Devise methods to assess the magnitude of the carbon footprint
       that is associated with addressing schemes.
@@ -1115,13 +1101,6 @@ Internet-Draft       Management for Green Networking       December 2023
    close proximity to each other in order to avoid unnecessary overhead
    in long-distance control traffic.
 
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 20]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
    Other opportunities concern adding carbon-awareness to dynamic path
    selection schemes.  This is sometimes also referred to as "energy-
    aware networking" (respectively "pollution-aware networking"
@@ -1135,6 +1114,14 @@ Internet-Draft       Management for Green Networking       December 2023
    efficient traffic steering.  This contrasts and indeed conflicts with
    existing schemes that typically aim to create redundancy and load-
    balance traffic across a network to achieve even resource
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 20]
+
+Internet-Draft       Management for Green Networking       December 2023
+
+
    utilization.  This usually occurs for important reasons, such as
    making networks more resilient, optimizing service levels, and
    increasing fairness.  One of the big challenges hence concerns how
@@ -1170,14 +1157,6 @@ Internet-Draft       Management for Green Networking       December 2023
 
    *  Extend control-plane protocols with carbon-related parameters.
 
-
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 21]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
    *  Consider security issues imposed by greater energy awareness, to
       minimize the new attack surfaces that would allow an adversary to
       turn off resources or to waste energy.
@@ -1191,6 +1170,13 @@ Internet-Draft       Management for Green Networking       December 2023
    not only for the energy cost associated with packet forwarding across
    a given path, but related cost for processing, for memory, for
    maintaining of state, to result in a holistic picture.
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 21]
+
+Internet-Draft       Management for Green Networking       December 2023
+
 
    Optimization of carbon footprint involves in many cases trade-offs
    that involve not only packet forwarding but also aspects such as
@@ -1225,15 +1211,6 @@ Internet-Draft       Management for Green Networking       December 2023
    *  Devise methods to assess, to estimate, to predict carbon-intensity
       of paths.
 
-
-
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 22]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
    *  Devise methods to account for carbon footprint of flows and
       networking services.
 
@@ -1246,6 +1223,16 @@ Internet-Draft       Management for Green Networking       December 2023
    even when simply in idle state.  Minimizing the amount of equipment
    that needs to be turned on in the first place presents hence one of
    the biggest energy saving opportunities.
+
+
+
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 22]
+
+Internet-Draft       Management for Green Networking       December 2023
+
 
    Network deployments are generally dimensioned for periods of peak
    traffic, resulting in excess capacity during periods of non-peak
@@ -1283,13 +1270,6 @@ Internet-Draft       Management for Green Networking       December 2023
       enablement of those methods through control protocol extensions as
       needed.
 
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 23]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
 6.4.  Convergence Schemes
 
    One set of challenges of carbon-aware networking concerns the fact
@@ -1302,6 +1282,14 @@ Internet-Draft       Management for Green Networking       December 2023
    imposes high cost and incurs significant delay and is hence not
    susceptible to such schemes.  In order to mitigate this problem,
    mechanisms should be investigated that do not require convergence
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 23]
+
+Internet-Draft       Management for Green Networking       December 2023
+
+
    beyond the vicinity of the affected network device.  Especially in
    cases where central network controllers are involved that are
    responsible for aspects such as configuration of paths and the
@@ -1319,6 +1307,44 @@ Internet-Draft       Management for Green Networking       December 2023
    *  Investigate methods that mitigate effects of churn, including
       methods that maintain memory or state as well as methods relying
       on prediction, inference, and interpolation.
+
+6.5.  The Role of Topology
+
+   One of the most important network management constructs is that of
+   the network topology.  A network topology can usually be represented
+   as a database or as a mathematical graph, with vertices or nodes,
+   edges or links, representing networking nodes, links connecting their
+   interfaces, and all their characteristics.  Examples of these network
+   topology representations include routing protocols link-state
+   databases, and service function chaining graphs.
+
+   As we desire to add carbon and energy awareness into networks, the
+   energy proportionality of topologies directly supports sustainability
+   visibility and improvements via automation.
+
+   Specifically, for IETF-led advances, there are a number of areas to
+   research and engineer.  First, embedding carbon and energy awareness
+   into the representation of topologies, wheather considering IGP LSDBs
+   (link-state databases) and their advertisements, BGP-LS (BGP Link-
+   State), or metadata for the rendering of service function paths in a
+   service chain.  Second the use of those carbon-aware attributes into
+   looking at the topology as a whole for end-to-end energy and carbon
+   proportionality.
+
+
+
+
+
+
+
+
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 24]
+
+Internet-Draft       Management for Green Networking       December 2023
+
 
 7.  Challenges and Opportunities - Architecture Level
 
@@ -1338,14 +1364,6 @@ Internet-Draft       Management for Green Networking       December 2023
    The content is sent only a few times over the WAN, and then is served
    locally.  This shifts the energy consumption from networking to
    storage.  Further methods can reduce the energy usage even more
-
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 24]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
    [Bianco2016energy] [Mathew2011energy] [Islam2012evaluating].  Whether
    overall energy savings are net positive depends on the actual
    deployment, but from the network operator's perspective, at least it
@@ -1359,6 +1377,30 @@ Internet-Draft       Management for Green Networking       December 2023
    chips for larger name look-ups and memory for the in-network cache.
    As a result, it is unclear if there is an actual energy gain from the
    dissemination and retrieval of content within in-network caches.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 25]
+
+Internet-Draft       Management for Green Networking       December 2023
+
 
    Fog computing and placing intelligence at the edge are other
    architectural directions for reducing the amount of energy that is
@@ -1393,15 +1435,6 @@ Internet-Draft       Management for Green Networking       December 2023
    computing (and the different energy cost of computing in an
    hyperscale DC vs an edge node) is still an area of open research.
 
-
-
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 25]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
    In summary, rethinking of the overall network (and networked
    application) architecture can be an opportunity to significantly
    reduce the energy cost at the network layer, for example by
@@ -1412,6 +1445,18 @@ Internet-Draft       Management for Green Networking       December 2023
 
    The following summarizes some challenges and opportunities that can
    provide the basis for IETF-led advances in this space:
+
+
+
+
+
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 26]
+
+Internet-Draft       Management for Green Networking       December 2023
+
 
    *  Investigate organization of networking architecture for important
       classes of applications (examples: content delivery, right-placing
@@ -1431,32 +1476,6 @@ Internet-Draft       Management for Green Networking       December 2023
    an important problem for the networking industry to address, both for
    societal and for economic reasons.  This document has highlighted a
    number of the technical challenges and opportunities in that regard.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 26]
-
-Internet-Draft       Management for Green Networking       December 2023
-
 
    Of those, perhaps the key challenge to address right away concerns
    the ability to expose at a fine granularity the energy impact of any
@@ -1484,6 +1503,17 @@ Internet-Draft       Management for Green Networking       December 2023
    expect to see significant advances across these areas and believe
    that IETF has an important role to play in facilitating this.
 
+
+
+
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 27]
+
+Internet-Draft       Management for Green Networking       December 2023
+
+
 9.  IANA Considerations
 
    This document does not have any IANA requests.
@@ -1503,16 +1533,6 @@ Internet-Draft       Management for Green Networking       December 2023
    compromised energy optimization control loops.  Hence any mechanisms
    to instrument and monitor the network for such data need to be
    properly secured to ensure authenticity.
-
-
-
-
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 27]
-
-Internet-Draft       Management for Green Networking       December 2023
-
 
    In some cases, there are inherent tradeoffs between security and
    maximal energy efficiency that might otherwise be achieved.  An
@@ -1537,6 +1557,18 @@ Internet-Draft       Management for Green Networking       December 2023
 11.  Contributors
 
       Michael Welzl, University of Oslo, michawe@ifi.uio.no
+
+
+
+
+
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 28]
+
+Internet-Draft       Management for Green Networking       December 2023
+
 
 12.  Acknowledgments
 
@@ -1563,13 +1595,6 @@ Internet-Draft       Management for Green Networking       December 2023
               networks", IEEE International Conference on Communications
               (ICC) pp.1-6, 2016.
 
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 28]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
    [Bolla2011energy]
               Bolla, R., Bruschi, R., Davoli, F., and F. Cucchietti,
               "Energy Efficiency in the Future Internet: A Survey of
@@ -1591,6 +1616,15 @@ Internet-Draft       Management for Green Networking       December 2023
    [DRAM]     Paiva, T. B., Navaridas, J., and R. Terada, "Robust Covert
               Channels Based on DRAM Power Consumption", In book:
               Information Security (pp.319-338) , 2019.
+
+
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 29]
+
+Internet-Draft       Management for Green Networking       December 2023
+
 
    [Emergy]   Raghavan, B. and J. Ma, "The Energy and Emergy of the
               Internet", ACM HotNets , 2011.
@@ -1619,13 +1653,6 @@ Internet-Draft       Management for Green Networking       December 2023
               Sensors Vol. 19 No. 3, June 2019,
               <https://ieeexplore.ieee.org/document/6779082>.
 
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 29]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
    [I.D.draft-cx-green-metrics]
               Clemm, A., Dong, L., Mirsky, G., Ciavaglia, L., Tantsura,
               J., Odini, M., Schooler, E., and A. Rezaki, "Green
@@ -1645,6 +1672,15 @@ Internet-Draft       Management for Green Networking       December 2023
    [Junkyard] Switzer, J., Kastner, R., and P. Pannuto, "Architecture of
               a Junkyard Datacenter", arXiv:2110.06870v1, October 2021 ,
               2021.
+
+
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 30]
+
+Internet-Draft       Management for Green Networking       December 2023
+
 
    [Krol2017NFaaS]
               Krol, M. and I. Psaras, "NFaaS: Named Function as a
@@ -1673,15 +1709,6 @@ Internet-Draft       Management for Green Networking       December 2023
               HTTP", IEEE International Conference on Computing,
               Networking and Communications (ICNC) pp.581-587, 2018.
 
-
-
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 30]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
    [RFC2481]  Ramakrishnan, K. and S. Floyd, "A Proposal to add Explicit
               Congestion Notification (ECN) to IP", RFC 2481,
               DOI 10.17487/RFC2481, January 1999,
@@ -1703,6 +1730,13 @@ Internet-Draft       Management for Green Networking       December 2023
    [RFC7950]  Bjorklund, M., Ed., "The YANG 1.1 Data Modeling Language",
               RFC 7950, DOI 10.17487/RFC7950, August 2016,
               <https://www.rfc-editor.org/info/rfc7950>.
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 31]
+
+Internet-Draft       Management for Green Networking       December 2023
+
 
    [RFC8402]  Filsfils, C., Ed., Previdi, S., Ed., Ginsberg, L.,
               Decraene, B., Litkowski, S., and R. Shakir, "Segment
@@ -1729,15 +1763,6 @@ Internet-Draft       Management for Green Networking       December 2023
               Telefonica, "Telefonica Consolidated Annual Report 2021.",
               2021.
 
-
-
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 31]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
    [TradeOff] Welzl, M., "Not a Trade-Off: On the Wi-Fi Energy
               Efficiency of Effective Internet Congestion Control",
               IEEE/IFIP WONS , 2022.
@@ -1756,6 +1781,18 @@ Internet-Draft       Management for Green Networking       December 2023
               Computer Communciations Review Vol.44 No.3, July 2014.
 
 Authors' Addresses
+
+
+
+
+
+
+
+
+Clemm, et al.              Expires 3 July 2024                 [Page 32]
+
+Internet-Draft       Management for Green Networking       December 2023
+
 
    Alexander Clemm (editor)
    Futurewei
@@ -1786,45 +1823,8 @@ Authors' Addresses
    Email: cpignata@gmail.com, cmpignat@ncsu.edu
 
 
-
-
-
-Clemm, et al.              Expires 3 July 2024                 [Page 32]
-
-Internet-Draft       Management for Green Networking       December 2023
-
-
    Marie-Paule Odini
    Email: mp.odini@orange.fr
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

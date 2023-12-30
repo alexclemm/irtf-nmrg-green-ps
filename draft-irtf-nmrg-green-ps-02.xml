@@ -517,13 +517,22 @@ One set of challenges of carbon-aware networking concerns the fact that many sch
 </t>
 </section>
 
-<!--
+<!-- Alex, feel free to comment out this following section, we can talk more about it. -->
+
+
 <section title="The Role of Topology">
-<t>One of the most important network management constructs for networks is that of the topological graph. That is, a graph view at nodes, links, and their characteristics. 
-    As we desire to add some awareness and proportionality of sustainability to networks, 'topology proportionality' is an anchor point that is not too narrow and not too wide in scope. As such, network management network-wide end-to-end sustainability approaches can get green attributes from the topology graph, and use topology as the way to proportionaly optimize end-to-end.
-</t>
+    <t>
+        One of the most important network management constructs is that of the network topology. A network topology can usually be represented as a database or as a mathematical graph, with vertices or nodes, edges or links, representing networking nodes, links connecting their interfaces, and all their characteristics. Examples of these network topology representations include routing protocols link-state databases, and service function chaining graphs.
+    </t>
+    <t>
+        As we desire to add carbon and energy awareness into networks, the energy proportionality of topologies directly supports sustainability visibility and improvements via automation.
+    </t>
+    <t>
+        Specifically, for IETF-led advances, there are a number of areas to research and engineer. First, embedding carbon and energy awareness into the representation of topologies, wheather considering IGP LSDBs (link-state databases) and their advertisements, BGP-LS (BGP Link-State), or metadata for the rendering of service function paths in a service chain. Second the use of those carbon-aware attributes into looking at the topology as a whole for end-to-end energy and carbon proportionality.
+    </t>
 </section>
--->
+
+
 
 </section>
 
