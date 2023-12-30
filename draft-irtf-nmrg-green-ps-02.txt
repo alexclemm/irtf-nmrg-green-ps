@@ -5,7 +5,7 @@
 Network Working Group                                      A. Clemm, Ed.
 Internet-Draft                                               C. Westphal
 Intended status: Informational                                 Futurewei
-Expires: 1 July 2024                                         J. Tantsura
+Expires: 3 July 2024                                         J. Tantsura
                                                                   Nvidia
                                                             L. Ciavaglia
                                                                    Nokia
@@ -53,12 +53,12 @@ Status of This Memo
 
 
 
-Clemm, et al.              Expires 1 July 2024                  [Page 1]
+Clemm, et al.              Expires 3 July 2024                  [Page 1]
 
 Internet-Draft       Management for Green Networking       December 2023
 
 
-   This Internet-Draft will expire on 1 July 2024.
+   This Internet-Draft will expire on 3 July 2024.
 
 Copyright Notice
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Clemm, et al.              Expires 1 July 2024                  [Page 2]
+Clemm, et al.              Expires 3 July 2024                  [Page 2]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -156,16 +156,16 @@ Internet-Draft       Management for Green Networking       December 2023
    pollution.
 
    In the context of this document, we refer to networking technology
-   that helps to improve its own sustainability as "green".  Green, in
-   that sense, includes technology that helps to lower networking's
-   greenhouse gas emissions including carbon footprint, which turn
-   includes technology that helps to increase efficiency and realize
-   energy savings as well as facilitating managing networks towards
-   stronger use of renewables.
+   that helps to improve its own networking sustainability as "green".
+   Green, in that sense, includes technology that helps to lower
+   networking's greenhouse gas emissions including carbon footprint,
+   which turn includes technology that helps to increase efficiency and
+   realize energy savings as well as facilitating managing networks
+   towards stronger use of renewables.
 
 
 
-Clemm, et al.              Expires 1 July 2024                  [Page 3]
+Clemm, et al.              Expires 3 July 2024                  [Page 3]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -221,16 +221,16 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                  [Page 4]
+Clemm, et al.              Expires 3 July 2024                  [Page 4]
 
 Internet-Draft       Management for Green Networking       December 2023
 
 
 1.2.  Approaching the Problem
 
-   Perhaps the most obvious gains in sustainability can be made with
-   regards to improving the efficiency with which networks utilize power
-   during their use phase, reducing the amount of energy that is
+   An often considered gain in networking sustainability can be made
+   with regards to improving the efficiency with which networks utilize
+   power during their use phase, reducing the amount of energy that is
    required to provide communication services.  However, for a holistic
    approach other aspects need to be considered as well.
 
@@ -277,7 +277,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                  [Page 5]
+Clemm, et al.              Expires 3 July 2024                  [Page 5]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -333,7 +333,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                  [Page 6]
+Clemm, et al.              Expires 3 July 2024                  [Page 6]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -389,7 +389,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                  [Page 7]
+Clemm, et al.              Expires 3 July 2024                  [Page 7]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -445,7 +445,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                  [Page 8]
+Clemm, et al.              Expires 3 July 2024                  [Page 8]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -501,7 +501,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                  [Page 9]
+Clemm, et al.              Expires 3 July 2024                  [Page 9]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -557,7 +557,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 10]
+Clemm, et al.              Expires 3 July 2024                 [Page 10]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -613,7 +613,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 11]
+Clemm, et al.              Expires 3 July 2024                 [Page 11]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -669,7 +669,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 12]
+Clemm, et al.              Expires 3 July 2024                 [Page 12]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -725,7 +725,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 13]
+Clemm, et al.              Expires 3 July 2024                 [Page 13]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -781,7 +781,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 14]
+Clemm, et al.              Expires 3 July 2024                 [Page 14]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -837,7 +837,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 15]
+Clemm, et al.              Expires 3 July 2024                 [Page 15]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -893,7 +893,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 16]
+Clemm, et al.              Expires 3 July 2024                 [Page 16]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -949,7 +949,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 17]
+Clemm, et al.              Expires 3 July 2024                 [Page 17]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -1005,7 +1005,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 18]
+Clemm, et al.              Expires 3 July 2024                 [Page 18]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -1061,7 +1061,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 19]
+Clemm, et al.              Expires 3 July 2024                 [Page 19]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -1117,7 +1117,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 20]
+Clemm, et al.              Expires 3 July 2024                 [Page 20]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -1173,7 +1173,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 21]
+Clemm, et al.              Expires 3 July 2024                 [Page 21]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -1229,7 +1229,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 22]
+Clemm, et al.              Expires 3 July 2024                 [Page 22]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -1285,7 +1285,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 23]
+Clemm, et al.              Expires 3 July 2024                 [Page 23]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -1341,7 +1341,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 24]
+Clemm, et al.              Expires 3 July 2024                 [Page 24]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -1397,7 +1397,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 25]
+Clemm, et al.              Expires 3 July 2024                 [Page 25]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -1453,7 +1453,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 26]
+Clemm, et al.              Expires 3 July 2024                 [Page 26]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -1509,7 +1509,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 27]
+Clemm, et al.              Expires 3 July 2024                 [Page 27]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -1565,7 +1565,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 28]
+Clemm, et al.              Expires 3 July 2024                 [Page 28]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -1621,7 +1621,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 29]
+Clemm, et al.              Expires 3 July 2024                 [Page 29]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -1677,7 +1677,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 30]
+Clemm, et al.              Expires 3 July 2024                 [Page 30]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -1733,7 +1733,7 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 31]
+Clemm, et al.              Expires 3 July 2024                 [Page 31]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -1789,7 +1789,7 @@ Authors' Addresses
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 32]
+Clemm, et al.              Expires 3 July 2024                 [Page 32]
 
 Internet-Draft       Management for Green Networking       December 2023
 
@@ -1845,4 +1845,4 @@ Internet-Draft       Management for Green Networking       December 2023
 
 
 
-Clemm, et al.              Expires 1 July 2024                 [Page 33]
+Clemm, et al.              Expires 3 July 2024                 [Page 33]

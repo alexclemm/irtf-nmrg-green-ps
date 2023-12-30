@@ -133,7 +133,7 @@ sustainability goal. However, sustainability encompasses also other factors beyo
 such as sustainable use of other natural resources, the preservation of natural habitats 
 and biodiversity, and the avoidance of any form of pollution.  
 </t>
-<t>In the context of this document, we refer to networking technology that helps to improve its own
+<t>In the context of this document, we refer to networking technology that helps to improve its own networking 
 sustainability  as "green".  Green, in that sense, includes technology that helps 
 to lower networking's greenhouse gas emissions including carbon footprint, which turn includes technology that helps to increase efficiency and realize energy savings as well as facilitating managing networks towards 
 stronger use of renewables. 
@@ -153,7 +153,7 @@ For example, in its annual report, Telefónica reports that in 2021, its network
 </section>
 <section title="Approaching the Problem">
 <t>
-Perhaps the most obvious gains in sustainability can be made with regards to improving the efficiency with which networks utilize power during their use phase, reducing the amount of energy that is required to provide communication services. However, for a holistic approach other aspects need to be considered as well. 
+An often considered gain in networking sustainability can be made with regards to improving the efficiency with which networks utilize power during their use phase, reducing the amount of energy that is required to provide communication services. However, for a holistic approach other aspects need to be considered as well. 
 </t>
 <t>Environmental footprint is determined not by power consumption alone.  The sustainability of power sources needs to be taken into account as well.  A deployment that includes devices that are less energy-efficient but that are powered by a sustainable energy source can arguably be considered "greener" than a deployment that includes highly efficient device that are powered by Diesel generators.  In fact, in the same Telefónica report mentioned earlier, extensive reliance on renewable energy sources is emphasized. 
 </t>
